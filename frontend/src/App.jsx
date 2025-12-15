@@ -3,10 +3,8 @@ import heroImage from './assets/Hero-home-group.png'
 import backgroundImage from './assets/background.png'
 import shapeImage from './assets/about-1-shape-2.png'
 import handImage from './assets/slider-1-hand-1.png'
-import bloodBagImage from './assets/doctor.jpg'
 import medicalSceneImage from './assets/doctor.jpg'
 import smilingChildImage from './assets/work-pledge.png'
-import nurseImage from './assets/impact-led.png'
 import schoolChildrenImage from './assets/smiling.jpg'
 import loveIcon from './assets/love.png'
 import userGroupIcon from './assets/user-group.png'
@@ -16,7 +14,14 @@ import clockIcon from './assets/clock.png'
 import heartIcon from './assets/heart.png'
 import userIcon from './assets/user.png'
 import prayIcon from './assets/pray.png'
-import backgImage from './assets/backg.jpeg'
+import pageHeader3 from './assets/page-header3.png'
+import pageHeader4 from './assets/page-header4.png'
+import pageHeader6 from './assets/page-header6.png'
+import globalNeedHero from './assets/global-need-hero.png'
+import impactHero from './assets/impact-hero.png'
+import sarahImage from './assets/sarah.jpg'
+import receivingImage from './assets/receiving.jpg'
+import anemiaImage from './assets/anemia.jpeg'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
@@ -31,8 +36,8 @@ function App() {
   const renderPage = () => {
     switch(currentPage) {
       case 'about': return <AboutPage />
-      case 'global-need': return <GlobalNeedPage />
       case 'impact': return <ImpactPage />
+      case 'login': return <LoginPage />
       case 'donate': return <DonatePage donationStep={donationStep} setDonationStep={setDonationStep} formData={formData} setFormData={setFormData} />
       default: return <HomePage setCurrentPage={setCurrentPage} />
     }
@@ -75,14 +80,6 @@ function App() {
               fontSize: '16px',
               fontWeight: '600'
             }}>ABOUT US</button>
-            <button onClick={() => setCurrentPage('global-need')} style={{ 
-              background: 'none', 
-              border: 'none', 
-              color: 'white', 
-              cursor: 'pointer',
-              fontSize: '16px',
-              fontWeight: '600'
-            }}>THE GLOBAL NEED</button>
             <button onClick={() => setCurrentPage('impact')} style={{ 
               background: 'none', 
               border: 'none', 
@@ -91,6 +88,14 @@ function App() {
               fontSize: '16px',
               fontWeight: '600'
             }}>IMPACT</button>
+            <button onClick={() => setCurrentPage('login')} style={{ 
+              background: 'none', 
+              border: 'none', 
+              color: 'white', 
+              cursor: 'pointer',
+              fontSize: '16px',
+              fontWeight: '600'
+            }}>LOGIN</button>
           </nav>
         </div>
       </header>
@@ -1220,40 +1225,1192 @@ function DonatePage({ donationStep, setDonationStep, formData, setFormData }) {
 }
 
 function AboutPage() {
+  const [fundFormStep, setFundFormStep] = useState(1)
+  const [fundFormData, setFundFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    donationAmount: '',
+    customAmount: '',
+    cardNumber: '',
+    expirationDate: '',
+    securityCode: '',
+    country: 'Rwanda'
+  })
+
+  const handleFundFormInputChange = (field, value) => {
+    setFundFormData(prev => ({ ...prev, [field]: value }))
+  }
+
+  const handleFundFormNext = () => {
+    setFundFormStep(prev => prev + 1)
+  }
+
+  const handleFundFormPrevious = () => {
+    setFundFormStep(prev => prev - 1)
+  }
+
+  const handleFundFormSubmit = () => {
+    alert('Thank you for your donation!')
+    setFundFormStep(1)
+    setFundFormData({
+      firstName: '',
+      lastName: '',
+      email: '',
+      donationAmount: '',
+      customAmount: '',
+      cardNumber: '',
+      expirationDate: '',
+      securityCode: '',
+      country: 'Rwanda'
+    })
+  }
+
   return (
-    <div style={{ padding: '80px 0', background: '#f5f5f5' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px', textAlign: 'center' }}>
-        <h1 style={{ fontSize: '48px', fontWeight: 'bold', color: '#701C45', marginBottom: '24px' }}>About LIFE DROP</h1>
-        <p style={{ fontSize: '20px', color: '#666', maxWidth: '800px', margin: '0 auto' }}>
-          We are dedicated to ensuring safe blood access worldwide through funding, equipment, and expertise.
-        </p>
-      </div>
+    <div>
+
+      {/* Mission Section */}
+      <section style={{ 
+        padding: '100px 0', 
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+            <div>
+              <h2 style={{ 
+                fontSize: '36px', 
+                fontWeight: 'bold', 
+                color: '#701C45',
+                marginBottom: '24px'
+              }}>
+                MISSION
+              </h2>
+              <p style={{ 
+                fontSize: '16px', 
+                color: '#666', 
+                marginBottom: '32px',
+                lineHeight: '1.6'
+              }}>
+                Our aim is simple; to save lives by improving the availability and safety of blood in some of the world's poorest nations.
+              </p>
+              <button style={{ 
+                background: '#701C45',
+                color: 'white', 
+                padding: '16px 32px', 
+                borderRadius: '25px', 
+                border: 'none', 
+                fontSize: '16px', 
+                fontWeight: 'bold',
+                cursor: 'pointer'
+              }}>
+                Become a partner
+              </button>
+            </div>
+            <div style={{ 
+              width: '100%',
+              height: '350px',
+              borderRadius: '12px',
+              backgroundImage: `url(${pageHeader3})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Who We Are Section */}
+      <section style={{ padding: '100px 0', background: 'white' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+            <div style={{ 
+              width: '100%',
+              height: '350px',
+              borderRadius: '12px',
+              backgroundImage: `url(${pageHeader6})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}></div>
+            <div>
+              <h2 style={{ 
+                fontSize: '36px', 
+                fontWeight: 'bold', 
+                color: '#701C45',
+                marginBottom: '24px'
+              }}>
+                WHO WE ARE
+              </h2>
+              <p style={{ 
+                fontSize: '16px', 
+                color: '#666', 
+                lineHeight: '1.6'
+              }}>
+                LIFE DROP is a charity dedicated to reducing worldwide inequities in blood safety and sufficiency. Since 2008, we have helped over 50 poorly resourced countries in Africa, Asia and Latin America better serve their communities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* History Section */}
+      <section style={{ padding: '100px 0', background: '#f5f5f5' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+            <div>
+              <h2 style={{ 
+                fontSize: '36px', 
+                fontWeight: 'bold', 
+                color: '#701C45',
+                marginBottom: '24px'
+              }}>
+                HISTORY
+              </h2>
+              <p style={{ 
+                fontSize: '16px', 
+                color: '#666', 
+                lineHeight: '1.6'
+              }}>
+                LIFE DROP has been reducing worldwide inequities in blood safety and sufficiency since 2008.
+              </p>
+            </div>
+            <div style={{ 
+              width: '100%',
+              height: '350px',
+              borderRadius: '12px',
+              backgroundImage: `url(${globalNeedHero})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}></div>
+          </div>
+        </div>
+      </section>
+
+
+
+      {/* Fund Our Mission Form Section */}
+      <section style={{ padding: '80px 0', background: 'white' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 24px', textAlign: 'center' }}>
+          <h2 style={{ 
+            fontSize: '36px', 
+            fontWeight: 'bold', 
+            color: '#701C45',
+            marginBottom: '24px'
+          }}>
+            FUND OUR MISSION
+          </h2>
+          <p style={{ 
+            fontSize: '16px', 
+            color: '#666', 
+            marginBottom: '60px',
+            lineHeight: '1.6',
+            maxWidth: '600px',
+            margin: '0 auto 60px'
+          }}>
+            Be the reason someone gets a second chance at life. Help us build a world where no woman, child, or accident victim loses the fight because of a lack of blood. Together, we can make survival the norm — not the exception.
+          </p>
+          
+          <div style={{ 
+            textAlign: 'left', 
+            maxWidth: '500px', 
+            margin: '0 auto',
+            background: 'white',
+            padding: '40px',
+            borderRadius: '20px',
+            boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+            border: '1px solid #e0e0e0'
+          }}>
+            <div style={{ marginBottom: '20px' }}>
+              <span style={{ fontSize: '16px', fontWeight: 'bold', color: '#333' }}>
+                Step {fundFormStep} of 3
+              </span>
+            </div>
+            <div style={{ 
+              width: '100%', 
+              height: '8px', 
+              background: '#e0e0e0', 
+              borderRadius: '4px',
+              overflow: 'hidden',
+              marginBottom: '40px'
+            }}>
+              <div style={{ 
+                width: `${(fundFormStep / 3) * 100}%`, 
+                height: '100%', 
+                background: '#4CAF50',
+                transition: 'width 0.3s ease'
+              }}></div>
+            </div>
+
+            {fundFormStep === 1 && (
+              <>
+                <div style={{ marginBottom: '32px' }}>
+                  <label style={{ 
+                    display: 'block', 
+                    fontSize: '16px', 
+                    fontWeight: 'bold', 
+                    color: '#333',
+                    marginBottom: '8px'
+                  }}>
+                    Name <span style={{ color: '#e74c3c' }}>(Required)</span>
+                  </label>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                    <div>
+                      <label style={{ fontSize: '14px', color: '#666', marginBottom: '4px', display: 'block' }}>First</label>
+                      <input 
+                        type="text"
+                        value={fundFormData.firstName}
+                        onChange={(e) => handleFundFormInputChange('firstName', e.target.value)}
+                        style={{ 
+                          width: '100%', 
+                          padding: '12px 16px', 
+                          border: '2px solid #e0e0e0', 
+                          borderRadius: '8px',
+                          fontSize: '16px',
+                          boxSizing: 'border-box'
+                        }}
+                      />
+                    </div>
+                    <div>
+                      <label style={{ fontSize: '14px', color: '#666', marginBottom: '4px', display: 'block' }}>Last</label>
+                      <input 
+                        type="text"
+                        value={fundFormData.lastName}
+                        onChange={(e) => handleFundFormInputChange('lastName', e.target.value)}
+                        style={{ 
+                          width: '100%', 
+                          padding: '12px 16px', 
+                          border: '2px solid #e0e0e0', 
+                          borderRadius: '8px',
+                          fontSize: '16px',
+                          boxSizing: 'border-box'
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ marginBottom: '32px' }}>
+                  <label style={{ 
+                    display: 'block', 
+                    fontSize: '16px', 
+                    fontWeight: 'bold', 
+                    color: '#333',
+                    marginBottom: '8px'
+                  }}>
+                    Email <span style={{ color: '#e74c3c' }}>(Required)</span>
+                  </label>
+                  <input 
+                    type="email"
+                    value={fundFormData.email}
+                    onChange={(e) => handleFundFormInputChange('email', e.target.value)}
+                    style={{ 
+                      width: '100%', 
+                      padding: '12px 16px', 
+                      border: '2px solid #e0e0e0', 
+                      borderRadius: '8px',
+                      fontSize: '16px',
+                      boxSizing: 'border-box'
+                    }}
+                  />
+                </div>
+
+                <button 
+                  onClick={handleFundFormNext}
+                  style={{ 
+                    background: '#701C45',
+                    color: 'white', 
+                    padding: '16px 32px', 
+                    borderRadius: '25px', 
+                    border: 'none', 
+                    fontSize: '16px', 
+                    fontWeight: 'bold',
+                    cursor: 'pointer'
+                  }}
+                >
+                  Next
+                </button>
+              </>
+            )}
+
+            {fundFormStep === 2 && (
+              <>
+                <div style={{ marginBottom: '32px' }}>
+                  <label style={{ 
+                    display: 'block', 
+                    fontSize: '16px', 
+                    fontWeight: 'bold', 
+                    color: '#333',
+                    marginBottom: '16px'
+                  }}>
+                    Donation Amount <span style={{ color: '#e74c3c' }}>(Required)</span>
+                  </label>
+                  <div style={{ marginBottom: '16px' }}>
+                    {['10', '50', '250'].map(amount => (
+                      <label key={amount} style={{ display: 'block', marginBottom: '8px', cursor: 'pointer' }}>
+                        <input 
+                          type="radio" 
+                          name="donationAmount" 
+                          value={amount}
+                          checked={fundFormData.donationAmount === amount}
+                          onChange={(e) => handleFundFormInputChange('donationAmount', e.target.value)}
+                          style={{ marginRight: '8px' }}
+                        />
+                        ${amount} USD
+                      </label>
+                    ))}
+                    <label style={{ display: 'block', marginBottom: '8px', cursor: 'pointer' }}>
+                      <input 
+                        type="radio" 
+                        name="donationAmount" 
+                        value="custom"
+                        checked={fundFormData.donationAmount === 'custom'}
+                        onChange={(e) => handleFundFormInputChange('donationAmount', e.target.value)}
+                        style={{ marginRight: '8px' }}
+                      />
+                      Other amount
+                    </label>
+                  </div>
+                  {fundFormData.donationAmount === 'custom' && (
+                    <input 
+                      type="number"
+                      placeholder="Enter amount"
+                      value={fundFormData.customAmount}
+                      onChange={(e) => handleFundFormInputChange('customAmount', e.target.value)}
+                      style={{ 
+                        width: '100%', 
+                        padding: '12px 16px', 
+                        border: '2px solid #e0e0e0', 
+                        borderRadius: '8px',
+                        fontSize: '16px',
+                        boxSizing: 'border-box',
+                        marginTop: '8px'
+                      }}
+                    />
+                  )}
+                </div>
+
+                <div style={{ display: 'flex', gap: '16px' }}>
+                  <button 
+                    onClick={handleFundFormPrevious}
+                    style={{ 
+                      background: '#6c757d',
+                      color: 'white', 
+                      padding: '16px 32px', 
+                      borderRadius: '25px', 
+                      border: 'none', 
+                      fontSize: '16px', 
+                      fontWeight: 'bold',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    Previous
+                  </button>
+                  <button 
+                    onClick={handleFundFormNext}
+                    style={{ 
+                      background: '#701C45',
+                      color: 'white', 
+                      padding: '16px 32px', 
+                      borderRadius: '25px', 
+                      border: 'none', 
+                      fontSize: '16px', 
+                      fontWeight: 'bold',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    Next
+                  </button>
+                </div>
+              </>
+            )}
+
+            {fundFormStep === 3 && (
+              <>
+                <div style={{ marginBottom: '32px' }}>
+                  <label style={{ 
+                    display: 'block', 
+                    fontSize: '16px', 
+                    fontWeight: 'bold', 
+                    color: '#333',
+                    marginBottom: '8px'
+                  }}>
+                    Credit Card <span style={{ color: '#e74c3c' }}>(Required)</span>
+                  </label>
+                  <div style={{ marginBottom: '16px' }}>
+                    <input 
+                      type="text"
+                      placeholder="Card number"
+                      value={fundFormData.cardNumber}
+                      onChange={(e) => handleFundFormInputChange('cardNumber', e.target.value)}
+                      style={{ 
+                        width: '100%', 
+                        padding: '12px 16px', 
+                        border: '2px solid #e0e0e0', 
+                        borderRadius: '8px',
+                        fontSize: '16px',
+                        boxSizing: 'border-box',
+                        marginBottom: '16px'
+                      }}
+                    />
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                      <input 
+                        type="text"
+                        placeholder="MM/YY"
+                        value={fundFormData.expirationDate}
+                        onChange={(e) => handleFundFormInputChange('expirationDate', e.target.value)}
+                        style={{ 
+                          width: '100%', 
+                          padding: '12px 16px', 
+                          border: '2px solid #e0e0e0', 
+                          borderRadius: '8px',
+                          fontSize: '16px',
+                          boxSizing: 'border-box'
+                        }}
+                      />
+                      <input 
+                        type="text"
+                        placeholder="CVC"
+                        value={fundFormData.securityCode}
+                        onChange={(e) => handleFundFormInputChange('securityCode', e.target.value)}
+                        style={{ 
+                          width: '100%', 
+                          padding: '12px 16px', 
+                          border: '2px solid #e0e0e0', 
+                          borderRadius: '8px',
+                          fontSize: '16px',
+                          boxSizing: 'border-box'
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <select 
+                    value={fundFormData.country}
+                    onChange={(e) => handleFundFormInputChange('country', e.target.value)}
+                    style={{ 
+                      width: '100%', 
+                      padding: '12px 16px', 
+                      border: '2px solid #e0e0e0', 
+                      borderRadius: '8px',
+                      fontSize: '16px',
+                      boxSizing: 'border-box'
+                    }}
+                  >
+                    <option value="Rwanda">Rwanda</option>
+                    <option value="Kenya">Kenya</option>
+                    <option value="Uganda">Uganda</option>
+                    <option value="Tanzania">Tanzania</option>
+                  </select>
+                </div>
+
+                <div style={{ display: 'flex', gap: '16px' }}>
+                  <button 
+                    onClick={handleFundFormPrevious}
+                    style={{ 
+                      background: '#6c757d',
+                      color: 'white', 
+                      padding: '16px 32px', 
+                      borderRadius: '25px', 
+                      border: 'none', 
+                      fontSize: '16px', 
+                      fontWeight: 'bold',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    Previous
+                  </button>
+                  <button 
+                    onClick={handleFundFormSubmit}
+                    style={{ 
+                      background: '#701C45',
+                      color: 'white', 
+                      padding: '16px 32px', 
+                      borderRadius: '25px', 
+                      border: 'none', 
+                      fontSize: '16px', 
+                      fontWeight: 'bold',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    Submit
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
 
-function GlobalNeedPage() {
+function LoginPage() {
+  const [loginData, setLoginData] = useState({
+    email: '',
+    password: ''
+  })
+
+  const handleInputChange = (field, value) => {
+    setLoginData(prev => ({ ...prev, [field]: value }))
+  }
+
+  const handleLogin = () => {
+    alert('Login functionality coming soon!')
+  }
+
   return (
-    <div style={{ padding: '80px 0', background: '#f5f5f5' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px', textAlign: 'center' }}>
-        <h1 style={{ fontSize: '48px', fontWeight: 'bold', color: '#701C45', marginBottom: '24px' }}>The Global Need</h1>
-        <p style={{ fontSize: '20px', color: '#666', maxWidth: '800px', margin: '0 auto' }}>
-          Understanding the critical blood shortage crisis affecting millions worldwide.
-        </p>
+    <div style={{ padding: '80px 0', background: '#f5f5f5', minHeight: '80vh' }}>
+      <div style={{ maxWidth: '500px', margin: '0 auto', padding: '0 24px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+          <h1 style={{ fontSize: '36px', fontWeight: 'bold', color: '#701C45', marginBottom: '16px' }}>LOGIN</h1>
+          <p style={{ fontSize: '16px', color: '#666' }}>Access your LIFE DROP account</p>
+        </div>
+
+        <div style={{ 
+          background: 'white',
+          padding: '40px',
+          borderRadius: '12px',
+          boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
+        }}>
+          <div style={{ marginBottom: '24px' }}>
+            <label style={{ 
+              display: 'block', 
+              fontSize: '16px', 
+              fontWeight: 'bold', 
+              color: '#333',
+              marginBottom: '8px'
+            }}>
+              Email
+            </label>
+            <input 
+              type="email"
+              value={loginData.email}
+              onChange={(e) => handleInputChange('email', e.target.value)}
+              style={{ 
+                width: '100%', 
+                padding: '12px 16px', 
+                border: '2px solid #e0e0e0', 
+                borderRadius: '8px',
+                fontSize: '16px',
+                boxSizing: 'border-box'
+              }}
+            />
+          </div>
+
+          <div style={{ marginBottom: '32px' }}>
+            <label style={{ 
+              display: 'block', 
+              fontSize: '16px', 
+              fontWeight: 'bold', 
+              color: '#333',
+              marginBottom: '8px'
+            }}>
+              Password
+            </label>
+            <input 
+              type="password"
+              value={loginData.password}
+              onChange={(e) => handleInputChange('password', e.target.value)}
+              style={{ 
+                width: '100%', 
+                padding: '12px 16px', 
+                border: '2px solid #e0e0e0', 
+                borderRadius: '8px',
+                fontSize: '16px',
+                boxSizing: 'border-box'
+              }}
+            />
+          </div>
+
+          <button 
+            onClick={handleLogin}
+            style={{ 
+              background: '#701C45',
+              color: 'white', 
+              padding: '16px 32px', 
+              borderRadius: '8px', 
+              border: 'none', 
+              fontSize: '16px', 
+              fontWeight: 'bold',
+              cursor: 'pointer',
+              width: '100%'
+            }}
+          >
+            Login
+          </button>
+        </div>
       </div>
     </div>
   )
 }
 
 function ImpactPage() {
+  const [fundFormStep, setFundFormStep] = useState(1)
+  const [fundFormData, setFundFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    donationAmount: '',
+    customAmount: '',
+    cardNumber: '',
+    expirationDate: '',
+    securityCode: '',
+    country: 'Rwanda'
+  })
+
+  const handleFundFormInputChange = (field, value) => {
+    setFundFormData(prev => ({ ...prev, [field]: value }))
+  }
+
+  const handleFundFormNext = () => {
+    setFundFormStep(prev => prev + 1)
+  }
+
+  const handleFundFormPrevious = () => {
+    setFundFormStep(prev => prev - 1)
+  }
+
+  const handleFundFormSubmit = () => {
+    alert('Thank you for your donation!')
+    setFundFormStep(1)
+    setFundFormData({
+      firstName: '',
+      lastName: '',
+      email: '',
+      donationAmount: '',
+      customAmount: '',
+      cardNumber: '',
+      expirationDate: '',
+      securityCode: '',
+      country: 'Rwanda'
+    })
+  }
+
   return (
-    <div style={{ padding: '80px 0', background: '#f5f5f5' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px', textAlign: 'center' }}>
-        <h1 style={{ fontSize: '48px', fontWeight: 'bold', color: '#701C45', marginBottom: '24px' }}>Our Impact</h1>
-        <p style={{ fontSize: '20px', color: '#666', maxWidth: '800px', margin: '0 auto' }}>
-          See how LIFE DROP is making a difference in communities worldwide.
-        </p>
-      </div>
+    <div>
+      {/* Impact Section */}
+      <section style={{ 
+        padding: '100px 0', 
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+            <div>
+              <h2 style={{ 
+                fontSize: '36px', 
+                fontWeight: 'bold', 
+                color: '#701C45',
+                marginBottom: '24px'
+              }}>
+                IMPACT
+              </h2>
+              <p style={{ 
+                fontSize: '16px', 
+                color: '#666', 
+                lineHeight: '1.6'
+              }}>
+                Anyone whose life has been touched by blood – understands its power to transform lives.
+              </p>
+            </div>
+            <div style={{ 
+              width: '100%',
+              height: '350px',
+              borderRadius: '12px',
+              backgroundImage: `url(${impactHero})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Strengthening Communities Section */}
+      <section style={{ padding: '100px 0', background: '#f5f5f5' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <h2 style={{ 
+            fontSize: '36px', 
+            fontWeight: 'bold', 
+            color: '#701C45',
+            textAlign: 'center',
+            marginBottom: '24px'
+          }}>
+            STRENGTHENING COMMUNITIES
+          </h2>
+          <p style={{ 
+            fontSize: '16px', 
+            color: '#666', 
+            textAlign: 'center',
+            lineHeight: '1.6',
+            maxWidth: '800px',
+            margin: '0 auto 60px'
+          }}>
+            A healthier community needs a sustainable blood supply. Every day, somewhere in the world, our neighbors face disease outbreaks, extreme poverty and other crises. Their need for a safe, sufficient blood supply has never been greater. Read the stories of lives saved and communities healed.
+          </p>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px' }}>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ 
+                width: '100%',
+                height: '250px',
+                borderRadius: '12px',
+                backgroundImage: `url(${sarahImage})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                marginBottom: '20px'
+              }}></div>
+              <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#701C45', marginBottom: '8px' }}>Sarah UMUTONI</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.5' }}>"The blood transfusion saved my life during childbirth. I'm forever grateful to the donors who made this possible."</p>
+            </div>
+            
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ 
+                width: '100%',
+                height: '250px',
+                borderRadius: '12px',
+                backgroundImage: `url(${receivingImage})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                marginBottom: '20px'
+              }}></div>
+              <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#701C45', marginBottom: '8px' }}>Michael GAKWAYA</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.5' }}>"After my accident, the emergency blood transfusion gave me a second chance at life. Thank you to all the heroes who donate."</p>
+            </div>
+            
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ 
+                width: '100%',
+                height: '250px',
+                borderRadius: '12px',
+                backgroundImage: `url(${anemiaImage})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                marginBottom: '20px'
+              }}></div>
+              <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#701C45', marginBottom: '8px' }}>Emma Rodriguez</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.5' }}>"My daughter's battle with anemia was won thanks to regular blood transfusions. Every donor is a lifesaver."</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Supplying the World Section */}
+      <section style={{ padding: '100px 0', background: 'white' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <h2 style={{ 
+            fontSize: '36px', 
+            fontWeight: 'bold', 
+            color: '#701C45',
+            textAlign: 'center',
+            marginBottom: '40px'
+          }}>
+            SUPPLYING THE WORLD
+          </h2>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px', fontSize: '16px', color: '#666', lineHeight: '1.8' }}>
+            <div>
+              <p>• Delivered over $2,000,000 (depreciated value) of re-homed equipment.</p>
+              <p>• Provide support to over 50 countries.</p>
+              <p>• Established first and only blood bank in Northern Laos.</p>
+              <p>• Donated two Trima Accel® Automated Blood Collection Systems to Ghanaian Ebola Readiness and Resilience Initiative.</p>
+              <p>• Hundreds of portable donor beds delivered to Nigeria, Mexico, Lesotho and Cambodia.</p>
+              <p>• Purchased computer equipment for a blood collector in Kenya.</p>
+              <p>• Delivered LifeServe machines to help grow the blood programs in Mexico.</p>
+              <p>• Funded a new TV spot to recruit blood donors in Haiti.</p>
+              <p>• Purchased technical manuals for 19 blood services across Latin America.</p>
+            </div>
+            <div>
+              <p>• Supplied multiple bloodmobiles to increase collections in Mexico, Malawi and Lebanon.</p>
+              <p>• Hundreds of donation mixer/scales to Tanzania, Rwanda, Liberia, Botswana.</p>
+              <p>• Hemapheresis technology sent to Africa, the Middle East and Eastern Europe.</p>
+              <p>• Centrifuges supplied to Mexico.</p>
+              <p>• Clinical uniforms delivered to Armenia.</p>
+              <p>• Purchased computer equipment for a blood collector in Kenya.</p>
+              <p>• Provided promotional materials for a blood collector in Mexico.</p>
+              <p>• Funded recruitment training in Eastern Europe.</p>
+              <p>• Funded a trainer to deliver recruitment training in Georgia (Eastern Caucasus).</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Focus Section */}
+      <section style={{ padding: '100px 0', background: '#f5f5f5' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+            <div>
+              <p style={{ 
+                fontSize: '18px', 
+                color: '#666', 
+                lineHeight: '1.6',
+                fontStyle: 'italic'
+              }}>
+                LIFE DROP focuses on enabling blood services in resource-poor countries to nurture that most precious of resources – blood donors.
+              </p>
+            </div>
+            <div style={{ 
+              width: '100%',
+              height: '350px',
+              borderRadius: '12px',
+              backgroundImage: `url(${pageHeader4})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Fund Our Mission Form Section */}
+      <section style={{ padding: '80px 0', background: 'white' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 24px', textAlign: 'center' }}>
+          <h2 style={{ 
+            fontSize: '36px', 
+            fontWeight: 'bold', 
+            color: '#701C45',
+            marginBottom: '24px'
+          }}>
+            FUND OUR MISSION
+          </h2>
+          <p style={{ 
+            fontSize: '16px', 
+            color: '#666', 
+            marginBottom: '60px',
+            lineHeight: '1.6',
+            maxWidth: '600px',
+            margin: '0 auto 60px'
+          }}>
+            Be the reason someone gets a second chance at life. Help us build a world where no woman, child, or accident victim loses the fight because of a lack of blood. Together, we can make survival the norm — not the exception.
+          </p>
+          
+          <div style={{ 
+            textAlign: 'left', 
+            maxWidth: '500px', 
+            margin: '0 auto',
+            background: 'white',
+            padding: '40px',
+            borderRadius: '20px',
+            boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+            border: '1px solid #e0e0e0'
+          }}>
+            <div style={{ marginBottom: '20px' }}>
+              <span style={{ fontSize: '16px', fontWeight: 'bold', color: '#333' }}>
+                Step {fundFormStep} of 3
+              </span>
+            </div>
+            <div style={{ 
+              width: '100%', 
+              height: '8px', 
+              background: '#e0e0e0', 
+              borderRadius: '4px',
+              overflow: 'hidden',
+              marginBottom: '40px'
+            }}>
+              <div style={{ 
+                width: `${(fundFormStep / 3) * 100}%`, 
+                height: '100%', 
+                background: '#4CAF50',
+                transition: 'width 0.3s ease'
+              }}></div>
+            </div>
+
+            {fundFormStep === 1 && (
+              <>
+                <div style={{ marginBottom: '32px' }}>
+                  <label style={{ 
+                    display: 'block', 
+                    fontSize: '16px', 
+                    fontWeight: 'bold', 
+                    color: '#333',
+                    marginBottom: '8px'
+                  }}>
+                    Name <span style={{ color: '#e74c3c' }}>(Required)</span>
+                  </label>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                    <div>
+                      <label style={{ fontSize: '14px', color: '#666', marginBottom: '4px', display: 'block' }}>First</label>
+                      <input 
+                        type="text"
+                        value={fundFormData.firstName}
+                        onChange={(e) => handleFundFormInputChange('firstName', e.target.value)}
+                        style={{ 
+                          width: '100%', 
+                          padding: '12px 16px', 
+                          border: '2px solid #e0e0e0', 
+                          borderRadius: '8px',
+                          fontSize: '16px',
+                          boxSizing: 'border-box'
+                        }}
+                      />
+                    </div>
+                    <div>
+                      <label style={{ fontSize: '14px', color: '#666', marginBottom: '4px', display: 'block' }}>Last</label>
+                      <input 
+                        type="text"
+                        value={fundFormData.lastName}
+                        onChange={(e) => handleFundFormInputChange('lastName', e.target.value)}
+                        style={{ 
+                          width: '100%', 
+                          padding: '12px 16px', 
+                          border: '2px solid #e0e0e0', 
+                          borderRadius: '8px',
+                          fontSize: '16px',
+                          boxSizing: 'border-box'
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ marginBottom: '32px' }}>
+                  <label style={{ 
+                    display: 'block', 
+                    fontSize: '16px', 
+                    fontWeight: 'bold', 
+                    color: '#333',
+                    marginBottom: '8px'
+                  }}>
+                    Email <span style={{ color: '#e74c3c' }}>(Required)</span>
+                  </label>
+                  <input 
+                    type="email"
+                    value={fundFormData.email}
+                    onChange={(e) => handleFundFormInputChange('email', e.target.value)}
+                    style={{ 
+                      width: '100%', 
+                      padding: '12px 16px', 
+                      border: '2px solid #e0e0e0', 
+                      borderRadius: '8px',
+                      fontSize: '16px',
+                      boxSizing: 'border-box'
+                    }}
+                  />
+                </div>
+
+                <button 
+                  onClick={handleFundFormNext}
+                  style={{ 
+                    background: '#701C45',
+                    color: 'white', 
+                    padding: '16px 32px', 
+                    borderRadius: '25px', 
+                    border: 'none', 
+                    fontSize: '16px', 
+                    fontWeight: 'bold',
+                    cursor: 'pointer'
+                  }}
+                >
+                  Next
+                </button>
+              </>
+            )}
+
+            {fundFormStep === 2 && (
+              <>
+                <div style={{ marginBottom: '32px' }}>
+                  <label style={{ 
+                    display: 'block', 
+                    fontSize: '16px', 
+                    fontWeight: 'bold', 
+                    color: '#333',
+                    marginBottom: '16px'
+                  }}>
+                    Donation Amount <span style={{ color: '#e74c3c' }}>(Required)</span>
+                  </label>
+                  <div style={{ marginBottom: '16px' }}>
+                    {['10', '50', '250'].map(amount => (
+                      <label key={amount} style={{ display: 'block', marginBottom: '8px', cursor: 'pointer' }}>
+                        <input 
+                          type="radio" 
+                          name="donationAmount" 
+                          value={amount}
+                          checked={fundFormData.donationAmount === amount}
+                          onChange={(e) => handleFundFormInputChange('donationAmount', e.target.value)}
+                          style={{ marginRight: '8px' }}
+                        />
+                        ${amount} USD
+                      </label>
+                    ))}
+                    <label style={{ display: 'block', marginBottom: '8px', cursor: 'pointer' }}>
+                      <input 
+                        type="radio" 
+                        name="donationAmount" 
+                        value="custom"
+                        checked={fundFormData.donationAmount === 'custom'}
+                        onChange={(e) => handleFundFormInputChange('donationAmount', e.target.value)}
+                        style={{ marginRight: '8px' }}
+                      />
+                      Other amount
+                    </label>
+                  </div>
+                  {fundFormData.donationAmount === 'custom' && (
+                    <input 
+                      type="number"
+                      placeholder="Enter amount"
+                      value={fundFormData.customAmount}
+                      onChange={(e) => handleFundFormInputChange('customAmount', e.target.value)}
+                      style={{ 
+                        width: '100%', 
+                        padding: '12px 16px', 
+                        border: '2px solid #e0e0e0', 
+                        borderRadius: '8px',
+                        fontSize: '16px',
+                        boxSizing: 'border-box',
+                        marginTop: '8px'
+                      }}
+                    />
+                  )}
+                </div>
+
+                <div style={{ display: 'flex', gap: '16px' }}>
+                  <button 
+                    onClick={handleFundFormPrevious}
+                    style={{ 
+                      background: '#6c757d',
+                      color: 'white', 
+                      padding: '16px 32px', 
+                      borderRadius: '25px', 
+                      border: 'none', 
+                      fontSize: '16px', 
+                      fontWeight: 'bold',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    Previous
+                  </button>
+                  <button 
+                    onClick={handleFundFormNext}
+                    style={{ 
+                      background: '#701C45',
+                      color: 'white', 
+                      padding: '16px 32px', 
+                      borderRadius: '25px', 
+                      border: 'none', 
+                      fontSize: '16px', 
+                      fontWeight: 'bold',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    Next
+                  </button>
+                </div>
+              </>
+            )}
+
+            {fundFormStep === 3 && (
+              <>
+                <div style={{ marginBottom: '32px' }}>
+                  <label style={{ 
+                    display: 'block', 
+                    fontSize: '16px', 
+                    fontWeight: 'bold', 
+                    color: '#333',
+                    marginBottom: '8px'
+                  }}>
+                    Credit Card <span style={{ color: '#e74c3c' }}>(Required)</span>
+                  </label>
+                  <div style={{ marginBottom: '16px' }}>
+                    <input 
+                      type="text"
+                      placeholder="Card number"
+                      value={fundFormData.cardNumber}
+                      onChange={(e) => handleFundFormInputChange('cardNumber', e.target.value)}
+                      style={{ 
+                        width: '100%', 
+                        padding: '12px 16px', 
+                        border: '2px solid #e0e0e0', 
+                        borderRadius: '8px',
+                        fontSize: '16px',
+                        boxSizing: 'border-box',
+                        marginBottom: '16px'
+                      }}
+                    />
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                      <input 
+                        type="text"
+                        placeholder="MM/YY"
+                        value={fundFormData.expirationDate}
+                        onChange={(e) => handleFundFormInputChange('expirationDate', e.target.value)}
+                        style={{ 
+                          width: '100%', 
+                          padding: '12px 16px', 
+                          border: '2px solid #e0e0e0', 
+                          borderRadius: '8px',
+                          fontSize: '16px',
+                          boxSizing: 'border-box'
+                        }}
+                      />
+                      <input 
+                        type="text"
+                        placeholder="CVC"
+                        value={fundFormData.securityCode}
+                        onChange={(e) => handleFundFormInputChange('securityCode', e.target.value)}
+                        style={{ 
+                          width: '100%', 
+                          padding: '12px 16px', 
+                          border: '2px solid #e0e0e0', 
+                          borderRadius: '8px',
+                          fontSize: '16px',
+                          boxSizing: 'border-box'
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <select 
+                    value={fundFormData.country}
+                    onChange={(e) => handleFundFormInputChange('country', e.target.value)}
+                    style={{ 
+                      width: '100%', 
+                      padding: '12px 16px', 
+                      border: '2px solid #e0e0e0', 
+                      borderRadius: '8px',
+                      fontSize: '16px',
+                      boxSizing: 'border-box'
+                    }}
+                  >
+                    <option value="Rwanda">Rwanda</option>
+                    <option value="Kenya">Kenya</option>
+                    <option value="Uganda">Uganda</option>
+                    <option value="Tanzania">Tanzania</option>
+                  </select>
+                </div>
+
+                <div style={{ display: 'flex', gap: '16px' }}>
+                  <button 
+                    onClick={handleFundFormPrevious}
+                    style={{ 
+                      background: '#6c757d',
+                      color: 'white', 
+                      padding: '16px 32px', 
+                      borderRadius: '25px', 
+                      border: 'none', 
+                      fontSize: '16px', 
+                      fontWeight: 'bold',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    Previous
+                  </button>
+                  <button 
+                    onClick={handleFundFormSubmit}
+                    style={{ 
+                      background: '#701C45',
+                      color: 'white', 
+                      padding: '16px 32px', 
+                      borderRadius: '25px', 
+                      border: 'none', 
+                      fontSize: '16px', 
+                      fontWeight: 'bold',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    Submit
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
