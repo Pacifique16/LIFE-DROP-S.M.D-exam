@@ -204,8 +204,8 @@ function HomePage({ setCurrentPage }) {
                 {/* Decorative shapes */}
                 <div style={{ 
                   position: 'absolute', 
-                  top: '-42px', 
-                  right: '164px',
+                  top: '-4px', 
+                  right: '240px',
                   width: '200px',
                   height: '150px',
                   backgroundImage: `url(${shapeImage})`,
@@ -216,7 +216,7 @@ function HomePage({ setCurrentPage }) {
                 <div style={{ 
                   position: 'absolute', 
                   bottom: '-4px', 
-                  left: '164px',
+                  left: '390px',
                   width: '200px',
                   height: '150px',
                   backgroundImage: `url(${shapeImage})`,
@@ -294,7 +294,7 @@ function HomePage({ setCurrentPage }) {
             <div style={{ position: 'relative' }}>
               <div style={{ 
                 width: '100%',
-                height: '500px',
+                height: '400px',
                 borderRadius: '12px',
                 backgroundImage: `url(${medicalSceneImage})`,
                 backgroundSize: 'cover',
@@ -303,13 +303,14 @@ function HomePage({ setCurrentPage }) {
               }}>
                 <div style={{
                   position: 'absolute',
-                  bottom: '20px',
-                  right: '20px',
-                  width: '250px',
-                  height: '160px',
+                  bottom: '-93px',
+                  right: '-93px',
+                  width: '280px',
+                  height: '180px',
                   borderRadius: '8px',
                   backgroundImage: `url(${schoolChildrenImage})`,
-                  backgroundSize: 'cover'
+                  backgroundSize: 'cover',
+                  border: '3px solid rgba(255, 255, 255, 0.8)'
                 }}></div>
               </div>
             </div>
