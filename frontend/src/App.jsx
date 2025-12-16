@@ -33,6 +33,7 @@ import bloodDropIcon from './assets/blood-drop.png'
 import logoutIcon from './assets/logout.png'
 import phoneCallIcon from './assets/phone-call.png'
 import impactLedImage from './assets/impact-led.png'
+import donatingImage from './assets/donating.jpg'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
@@ -54,6 +55,17 @@ function App() {
       case 'impact': return <ImpactPage />
       case 'contact': return <ContactPage />
       case 'donate': return <DonatePage donationStep={donationStep} setDonationStep={setDonationStep} formData={formData} setFormData={setFormData} />
+      case 'how-it-works': return <HowItWorksPage />
+      case 'for-hospitals': return <ForHospitalsPage />
+      case 'for-donors': return <ForDonorsPage />
+      case 'blood-drive-events': return <BloodDriveEventsPage />
+
+      case 'faq': return <FAQPage />
+      case 'partner-with-us': return <PartnerWithUsPage />
+      case 'api-integration': return <APIIntegrationPage />
+
+      case 'privacy-policy': return <PrivacyPolicyPage />
+      case 'terms-of-service': return <TermsOfServicePage />
       default: return <HomePage setCurrentPage={setCurrentPage} />
     }
   }
@@ -156,21 +168,26 @@ function App() {
                 LIFE DROP
               </div>
               <p style={{ lineHeight: '1.6', fontSize: '14px' }}>
-                Join us in transforming survival odds worldwide — by ensuring every woman giving birth, every child battling malaria, and every accident victim fighting for life has access to the life-saving blood they need.
+                Connecting hospitals with verified blood donors — ensuring critical blood supplies reach patients when every second counts. Streamlining the donation process for emergency care, surgeries, and life-saving treatments.
               </p>
             </div>
             <div>
               <h4 style={{ fontSize: '16px', fontWeight: 'bold', marginBottom: '20px' }}>QUICK LINKS</h4>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <button onClick={() => setCurrentPage('about')} style={{ background: 'none', border: 'none', color: 'white', textDecoration: 'none', fontSize: '14px', cursor: 'pointer' }}>Our Mission</button>
+                <button onClick={() => setCurrentPage('how-it-works')} style={{ background: 'none', border: 'none', color: 'white', textDecoration: 'none', fontSize: '14px', cursor: 'pointer', textAlign: 'left' }}>How It Works</button>
+                <button onClick={() => setCurrentPage('for-hospitals')} style={{ background: 'none', border: 'none', color: 'white', textDecoration: 'none', fontSize: '14px', cursor: 'pointer', textAlign: 'left' }}>For Hospitals</button>
+                <button onClick={() => setCurrentPage('for-donors')} style={{ background: 'none', border: 'none', color: 'white', textDecoration: 'none', fontSize: '14px', cursor: 'pointer', textAlign: 'left' }}>For Donors</button>
+                <button onClick={() => setCurrentPage('blood-drive-events')} style={{ background: 'none', border: 'none', color: 'white', textDecoration: 'none', fontSize: '14px', cursor: 'pointer', textAlign: 'left' }}>Blood Drive Events</button>
+
+                <button onClick={() => setCurrentPage('faq')} style={{ background: 'none', border: 'none', color: 'white', textDecoration: 'none', fontSize: '14px', cursor: 'pointer', textAlign: 'left' }}>FAQ</button>
               </div>
             </div>
             <div>
-              <h4 style={{ fontSize: '16px', fontWeight: 'bold', marginBottom: '20px' }}>FUND OUR MISSION</h4>
+              <h4 style={{ fontSize: '16px', fontWeight: 'bold', marginBottom: '20px' }}>PARTNERS</h4>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <a href="#" style={{ color: 'white', textDecoration: 'none', fontSize: '14px' }}>Corporate Giving</a>
-                <a href="#" style={{ color: 'white', textDecoration: 'none', fontSize: '14px' }}>Donate Equipment</a>
-                <a href="#" style={{ color: 'white', textDecoration: 'none', fontSize: '14px' }}>FAQ</a>
+                <button onClick={() => setCurrentPage('partner-with-us')} style={{ background: 'none', border: 'none', color: 'white', textDecoration: 'none', fontSize: '14px', cursor: 'pointer', textAlign: 'left' }}>Partner With Us</button>
+                <button onClick={() => setCurrentPage('api-integration')} style={{ background: 'none', border: 'none', color: 'white', textDecoration: 'none', fontSize: '14px', cursor: 'pointer', textAlign: 'left' }}>API Integration</button>
+
               </div>
             </div>
             <div>
@@ -180,7 +197,7 @@ function App() {
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                   </svg>
-                  Info@lifedrop.org
+                  support@lifedrop.org
                 </p>
                 <div style={{ display: 'flex', gap: '10px', marginTop: '16px' }}>
                   <a href="#" style={{ width: '30px', height: '30px', background: 'rgba(255,255,255,0.2)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -205,7 +222,8 @@ function App() {
           <div style={{ borderTop: '1px solid rgba(255,255,255,0.2)', paddingTop: '20px', display: 'flex', justifyContent: 'space-between', fontSize: '12px' }}>
             <div>Copyright © 2025 LIFE DROP | Powered by LIFE DROP</div>
             <div>
-              <a href="#" style={{ color: 'white', textDecoration: 'none', marginRight: '20px' }}>Privacy Policy</a>
+              <button onClick={() => setCurrentPage('privacy-policy')} style={{ background: 'none', border: 'none', color: 'white', textDecoration: 'none', cursor: 'pointer', fontSize: '12px', marginRight: '20px' }}>Privacy Policy</button>
+              <button onClick={() => setCurrentPage('terms-of-service')} style={{ background: 'none', border: 'none', color: 'white', textDecoration: 'none', cursor: 'pointer', fontSize: '12px', marginRight: '20px' }}>Terms of Service</button>
               <button onClick={() => setCurrentPage('contact')} style={{ background: 'none', border: 'none', color: 'white', textDecoration: 'none', cursor: 'pointer', fontSize: '12px' }}>Contact Us</button>
             </div>
           </div>
@@ -2534,12 +2552,13 @@ function ContactPage() {
               </p>
             </div>
             <div style={{ 
-              width: '500px',
-              height: '500px',
-              borderRadius: '50%',
+              width: '100%',
+              height: '300px',
+              borderRadius: '12px',
               backgroundImage: `url(${impactLedImage})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center'
+              backgroundSize: 'contain',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
             }}></div>
           </div>
         </div>
@@ -2561,7 +2580,7 @@ function ContactPage() {
               
               <div style={{ marginBottom: '32px' }}>
                 <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#701C45', marginBottom: '8px' }}>Email</h3>
-                <p style={{ fontSize: '16px', color: '#666' }}>Info@lifedrop.org</p>
+                <p style={{ fontSize: '16px', color: '#666' }}>support@lifedrop.org</p>
               </div>
               
               <div style={{ marginBottom: '32px' }}>
@@ -2697,6 +2716,1229 @@ function ContactPage() {
                   Send Message
                 </button>
               </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+// Placeholder Pages
+function HowItWorksPage() {
+  return (
+    <div>
+      <section style={{ 
+        padding: '100px 0', 
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+            <div>
+              <h1 style={{ 
+                fontSize: '48px', 
+                fontWeight: 'bold', 
+                color: '#701C45',
+                marginBottom: '24px'
+              }}>
+                HOW IT WORKS
+              </h1>
+              <p style={{ 
+                fontSize: '18px', 
+                color: '#666', 
+                lineHeight: '1.6'
+              }}>
+                Learn how LIFE DROP connects hospitals with blood donors across East Africa through our streamlined digital platform.
+              </p>
+            </div>
+            <div style={{ 
+              width: '100%',
+              height: '300px',
+              borderRadius: '12px',
+              backgroundImage: `url(${impactLedImage})`,
+              backgroundSize: 'contain',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Process Overview Section */}
+      <section style={{ padding: '80px 0', background: 'white' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <h2 style={{ fontSize: '36px', fontWeight: 'bold', color: '#701C45', textAlign: 'center', marginBottom: '60px' }}>STREAMLINED DONATION PROCESS</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '40px' }}>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ width: '80px', height: '80px', background: '#701C45', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', color: 'white', fontSize: '32px', fontWeight: 'bold' }}>1</div>
+              <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#701C45', marginBottom: '12px' }}>Hospital Request</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.5' }}>Hospitals create blood requests with specific type, quantity, and urgency level through our secure platform.</p>
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ width: '80px', height: '80px', background: '#701C45', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', color: 'white', fontSize: '32px', fontWeight: 'bold' }}>2</div>
+              <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#701C45', marginBottom: '12px' }}>Smart Matching</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.5' }}>Our algorithm instantly matches requests with eligible donors based on blood type, location, and availability.</p>
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ width: '80px', height: '80px', background: '#701C45', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', color: 'white', fontSize: '32px', fontWeight: 'bold' }}>3</div>
+              <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#701C45', marginBottom: '12px' }}>Donor Response</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.5' }}>Verified donors receive instant notifications and can accept or decline donation requests through mobile alerts.</p>
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ width: '80px', height: '80px', background: '#701C45', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', color: 'white', fontSize: '32px', fontWeight: 'bold' }}>4</div>
+              <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#701C45', marginBottom: '12px' }}>Donation & Tracking</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.5' }}>Scheduled donations are tracked, recorded, and inventory is automatically updated in real-time.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Technology Features Section */}
+      <section style={{ padding: '80px 0', background: '#f5f5f5' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <h2 style={{ fontSize: '36px', fontWeight: 'bold', color: '#701C45', textAlign: 'center', marginBottom: '60px' }}>ADVANCED PLATFORM FEATURES</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px' }}>
+            <div style={{ background: 'white', padding: '30px', borderRadius: '12px', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
+              <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#701C45', marginBottom: '16px' }}>Real-Time Matching</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>AI-powered algorithm processes donor-request matches within 5 seconds, ensuring rapid response for emergency situations.</p>
+            </div>
+            <div style={{ background: 'white', padding: '30px', borderRadius: '12px', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
+              <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#701C45', marginBottom: '16px' }}>24/7 Availability</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>Cloud-based infrastructure ensures continuous platform availability for critical blood requests and emergency responses.</p>
+            </div>
+            <div style={{ background: 'white', padding: '30px', borderRadius: '12px', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
+              <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#701C45', marginBottom: '16px' }}>Secure Data Protection</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>Enterprise-grade encryption and authentication protect all medical data in compliance with healthcare privacy regulations.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+function ForHospitalsPage() {
+  return (
+    <div>
+      <section style={{ 
+        padding: '100px 0', 
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+            <div>
+              <h1 style={{ 
+                fontSize: '48px', 
+                fontWeight: 'bold', 
+                color: '#701C45',
+                marginBottom: '24px'
+              }}>
+                FOR HOSPITALS
+              </h1>
+              <p style={{ 
+                fontSize: '18px', 
+                color: '#666', 
+                lineHeight: '1.6'
+              }}>
+                Register your hospital and post blood requests to our verified donor network. Access life-saving blood when you need it most.
+              </p>
+            </div>
+            <div style={{ 
+              width: '100%',
+              height: '300px',
+              borderRadius: '12px',
+              backgroundImage: `url(${heroImage})`,
+              backgroundSize: 'contain',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hospital Benefits Section */}
+      <section style={{ padding: '80px 0', background: 'white' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <h2 style={{ fontSize: '36px', fontWeight: 'bold', color: '#701C45', textAlign: 'center', marginBottom: '60px' }}>COMPREHENSIVE HOSPITAL SOLUTIONS</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px' }}>
+            <div style={{ textAlign: 'center', padding: '30px' }}>
+              <div style={{ width: '80px', height: '80px', background: '#701C45', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-4v-4H5v-4h5V5h4v4h5v4h-5v4z"/>
+                </svg>
+              </div>
+              <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#701C45', marginBottom: '16px' }}>Instant Blood Requests</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>Create urgent blood requests with specific type, quantity, and priority level. Our system immediately alerts matching donors within your region.</p>
+            </div>
+            <div style={{ textAlign: 'center', padding: '30px' }}>
+              <div style={{ width: '80px', height: '80px', background: '#701C45', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+              </div>
+              <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#701C45', marginBottom: '16px' }}>Verified Donor Network</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>Access our network of 10,000+ pre-screened, verified donors with complete medical histories and eligibility verification.</p>
+            </div>
+            <div style={{ textAlign: 'center', padding: '30px' }}>
+              <div style={{ width: '80px', height: '80px', background: '#701C45', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                  <path d="M9 11H7v6h2v-6zm4 0h-2v6h2v-6zm4 0h-2v6h2v-6zm2.5-9H19V1h-2v1H7V1H5v1H4.5C3.67 2 3 2.67 3 3.5v15C3 19.33 3.67 20 4.5 20h15c.83 0 1.5-.67 1.5-1.5v-15C21 2.67 20.33 2 19.5 2z"/>
+                </svg>
+              </div>
+              <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#701C45', marginBottom: '16px' }}>Inventory Management</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>Real-time blood inventory tracking with expiry date monitoring, automated alerts, and comprehensive donation records.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Registration Process Section */}
+      <section style={{ padding: '80px 0', background: '#f5f5f5' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <h2 style={{ fontSize: '36px', fontWeight: 'bold', color: '#701C45', textAlign: 'center', marginBottom: '60px' }}>HOSPITAL REGISTRATION PROCESS</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '30px' }}>
+            <div style={{ background: 'white', padding: '30px', borderRadius: '12px', textAlign: 'center' }}>
+              <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#701C45', marginBottom: '16px' }}>Step 1</div>
+              <h4 style={{ fontSize: '16px', fontWeight: 'bold', color: '#701C45', marginBottom: '12px' }}>Institution Verification</h4>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.5' }}>Submit hospital license, medical facility certification, and authorized personnel credentials.</p>
+            </div>
+            <div style={{ background: 'white', padding: '30px', borderRadius: '12px', textAlign: 'center' }}>
+              <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#701C45', marginBottom: '16px' }}>Step 2</div>
+              <h4 style={{ fontSize: '16px', fontWeight: 'bold', color: '#701C45', marginBottom: '12px' }}>System Integration</h4>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.5' }}>Configure API integration with existing hospital management systems and blood bank protocols.</p>
+            </div>
+            <div style={{ background: 'white', padding: '30px', borderRadius: '12px', textAlign: 'center' }}>
+              <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#701C45', marginBottom: '16px' }}>Step 3</div>
+              <h4 style={{ fontSize: '16px', fontWeight: 'bold', color: '#701C45', marginBottom: '12px' }}>Staff Training</h4>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.5' }}>Comprehensive training for medical staff on platform usage, request management, and donor coordination.</p>
+            </div>
+            <div style={{ background: 'white', padding: '30px', borderRadius: '12px', textAlign: 'center' }}>
+              <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#701C45', marginBottom: '16px' }}>Step 4</div>
+              <h4 style={{ fontSize: '16px', fontWeight: 'bold', color: '#701C45', marginBottom: '12px' }}>Go Live</h4>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.5' }}>Begin creating blood requests, accessing donor network, and managing inventory through our platform.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+function ForDonorsPage() {
+  return (
+    <div>
+      <section style={{ 
+        padding: '100px 0', 
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+            <div>
+              <h1 style={{ 
+                fontSize: '48px', 
+                fontWeight: 'bold', 
+                color: '#701C45',
+                marginBottom: '24px'
+              }}>
+                FOR DONORS
+              </h1>
+              <p style={{ 
+                fontSize: '18px', 
+                color: '#666', 
+                lineHeight: '1.6'
+              }}>
+                Join our network of verified blood donors and help save lives in your community. Get notified when hospitals need your blood type.
+              </p>
+            </div>
+            <div style={{ 
+              width: '100%',
+              height: '300px',
+              borderRadius: '12px',
+              backgroundImage: `url(${impactHero})`,
+              backgroundSize: 'contain',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Donor Benefits Section */}
+      <section style={{ padding: '80px 0', background: 'white' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <h2 style={{ fontSize: '36px', fontWeight: 'bold', color: '#701C45', textAlign: 'center', marginBottom: '60px' }}>BECOME A VERIFIED LIFE SAVER</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px' }}>
+            <div style={{ textAlign: 'center', padding: '30px' }}>
+              <div style={{ width: '80px', height: '80px', background: '#701C45', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              </div>
+              <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#701C45', marginBottom: '16px' }}>Smart Notifications</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>Receive instant alerts when hospitals need your specific blood type. Choose when and where to donate based on your availability.</p>
+            </div>
+            <div style={{ textAlign: 'center', padding: '30px' }}>
+              <div style={{ width: '80px', height: '80px', background: '#701C45', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#701C45', marginBottom: '16px' }}>Health Monitoring</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>Track your donation history, eligibility status, and receive health reminders. Our system ensures safe donation intervals.</p>
+            </div>
+            <div style={{ textAlign: 'center', padding: '30px' }}>
+              <div style={{ width: '80px', height: '80px', background: '#701C45', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+              </div>
+              <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#701C45', marginBottom: '16px' }}>Impact Tracking</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>See the direct impact of your donations - how many lives you've helped save and which hospitals benefited from your contribution.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Eligibility Requirements Section */}
+      <section style={{ padding: '80px 0', background: '#f5f5f5' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <h2 style={{ fontSize: '36px', fontWeight: 'bold', color: '#701C45', textAlign: 'center', marginBottom: '60px' }}>DONOR ELIGIBILITY REQUIREMENTS</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px' }}>
+            <div>
+              <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: '#701C45', marginBottom: '30px' }}>Basic Requirements</h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{ width: '8px', height: '8px', background: '#701C45', borderRadius: '50%' }}></div>
+                  <span style={{ fontSize: '16px', color: '#666' }}>Age: 18-65 years old</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{ width: '8px', height: '8px', background: '#701C45', borderRadius: '50%' }}></div>
+                  <span style={{ fontSize: '16px', color: '#666' }}>Weight: Minimum 50kg (110 lbs)</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{ width: '8px', height: '8px', background: '#701C45', borderRadius: '50%' }}></div>
+                  <span style={{ fontSize: '16px', color: '#666' }}>Good general health condition</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{ width: '8px', height: '8px', background: '#701C45', borderRadius: '50%' }}></div>
+                  <span style={{ fontSize: '16px', color: '#666' }}>No recent illness or medication</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: '#701C45', marginBottom: '30px' }}>Safety Intervals</h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{ width: '8px', height: '8px', background: '#701C45', borderRadius: '50%' }}></div>
+                  <span style={{ fontSize: '16px', color: '#666' }}>3 months between whole blood donations</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{ width: '8px', height: '8px', background: '#701C45', borderRadius: '50%' }}></div>
+                  <span style={{ fontSize: '16px', color: '#666' }}>2 weeks after minor illness recovery</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{ width: '8px', height: '8px', background: '#701C45', borderRadius: '50%' }}></div>
+                  <span style={{ fontSize: '16px', color: '#666' }}>24 hours after dental procedures</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{ width: '8px', height: '8px', background: '#701C45', borderRadius: '50%' }}></div>
+                  <span style={{ fontSize: '16px', color: '#666' }}>1 year after major surgery</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+function BloodDriveEventsPage() {
+  return (
+    <div>
+      <section style={{ 
+        padding: '100px 0', 
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+            <div>
+              <h1 style={{ 
+                fontSize: '48px', 
+                fontWeight: 'bold', 
+                color: '#701C45',
+                marginBottom: '24px'
+              }}>
+                BLOOD DRIVE EVENTS
+              </h1>
+              <p style={{ 
+                fontSize: '18px', 
+                color: '#666', 
+                lineHeight: '1.6'
+              }}>
+                Find upcoming blood drive events in your area and schedule your donation. Make a difference in your community.
+              </p>
+            </div>
+            <div style={{ 
+              width: '100%',
+              height: '300px',
+              borderRadius: '12px',
+              backgroundImage: `url(${donatingImage})`,
+              backgroundSize: 'contain',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Upcoming Events Section */}
+      <section style={{ padding: '80px 0', background: 'white' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <h2 style={{ fontSize: '36px', fontWeight: 'bold', color: '#701C45', textAlign: 'center', marginBottom: '60px' }}>UPCOMING BLOOD DRIVE EVENTS</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
+            <div style={{ background: '#f5f5f5', padding: '30px', borderRadius: '12px', border: '2px solid #701C45' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+                <div style={{ background: '#701C45', color: 'white', padding: '8px 16px', borderRadius: '20px', fontSize: '12px', fontWeight: 'bold' }}>URGENT</div>
+                <div style={{ fontSize: '14px', color: '#666' }}>Jan 15, 2025</div>
+              </div>
+              <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#701C45', marginBottom: '12px' }}>Kigali Central Hospital</h3>
+              <p style={{ fontSize: '14px', color: '#666', marginBottom: '16px' }}>Emergency blood drive for surgical patients. All blood types needed, especially O- and AB+.</p>
+              <div style={{ fontSize: '14px', color: '#666', marginBottom: '20px' }}>📍 KN 4 Ave, Kigali • 8:00 AM - 6:00 PM</div>
+              <button style={{ background: '#701C45', color: 'white', padding: '12px 24px', borderRadius: '8px', border: 'none', fontSize: '14px', fontWeight: 'bold', cursor: 'pointer', width: '100%' }}>Register to Donate</button>
+            </div>
+            <div style={{ background: '#f5f5f5', padding: '30px', borderRadius: '12px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+                <div style={{ background: '#4CAF50', color: 'white', padding: '8px 16px', borderRadius: '20px', fontSize: '12px', fontWeight: 'bold' }}>SCHEDULED</div>
+                <div style={{ fontSize: '14px', color: '#666' }}>Mar 10, 2025</div>
+              </div>
+              <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#701C45', marginBottom: '12px' }}>University of Rwanda</h3>
+              <p style={{ fontSize: '14px', color: '#666', marginBottom: '16px' }}>Campus blood drive for students and staff. Mobile donation units available.</p>
+              <div style={{ fontSize: '14px', color: '#666', marginBottom: '20px' }}>📍 UR Campus, Huye • 9:00 AM - 4:00 PM</div>
+              <button style={{ background: '#701C45', color: 'white', padding: '12px 24px', borderRadius: '8px', border: 'none', fontSize: '14px', fontWeight: 'bold', cursor: 'pointer', width: '100%' }}>Register to Donate</button>
+            </div>
+            <div style={{ background: '#f5f5f5', padding: '30px', borderRadius: '12px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+                <div style={{ background: '#FF9800', color: 'white', padding: '8px 16px', borderRadius: '20px', fontSize: '12px', fontWeight: 'bold' }}>COMMUNITY</div>
+                <div style={{ fontSize: '14px', color: '#666' }}>Apr 25, 2025</div>
+              </div>
+              <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#701C45', marginBottom: '12px' }}>Nyamirambo Community Center</h3>
+              <p style={{ fontSize: '14px', color: '#666', marginBottom: '16px' }}>Holiday community blood drive. Family-friendly event with refreshments.</p>
+              <div style={{ fontSize: '14px', color: '#666', marginBottom: '20px' }}>📍 Nyamirambo, Kigali • 10:00 AM - 3:00 PM</div>
+              <button style={{ background: '#701C45', color: 'white', padding: '12px 24px', borderRadius: '8px', border: 'none', fontSize: '14px', fontWeight: 'bold', cursor: 'pointer', width: '100%' }}>Register to Donate</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Event Organization Section */}
+      <section style={{ padding: '80px 0', background: '#f5f5f5' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <h2 style={{ fontSize: '36px', fontWeight: 'bold', color: '#701C45', textAlign: 'center', marginBottom: '60px' }}>ORGANIZE A BLOOD DRIVE EVENT</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+            <div>
+              <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: '#701C45', marginBottom: '24px' }}>Partner With Us</h3>
+              <p style={{ fontSize: '16px', color: '#666', lineHeight: '1.6', marginBottom: '30px' }}>Organizations, schools, and community groups can partner with LIFE DROP to organize impactful blood drive events. We provide complete support from planning to execution.</p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{ width: '8px', height: '8px', background: '#701C45', borderRadius: '50%' }}></div>
+                  <span style={{ fontSize: '16px', color: '#666' }}>Mobile donation units and medical staff</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{ width: '8px', height: '8px', background: '#701C45', borderRadius: '50%' }}></div>
+                  <span style={{ fontSize: '16px', color: '#666' }}>Marketing materials and promotional support</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{ width: '8px', height: '8px', background: '#701C45', borderRadius: '50%' }}></div>
+                  <span style={{ fontSize: '16px', color: '#666' }}>Real-time donor registration and screening</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{ width: '8px', height: '8px', background: '#701C45', borderRadius: '50%' }}></div>
+                  <span style={{ fontSize: '16px', color: '#666' }}>Post-event impact reporting and certificates</span>
+                </div>
+              </div>
+            </div>
+            <div style={{ background: 'white', padding: '40px', borderRadius: '12px', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
+              <h4 style={{ fontSize: '20px', fontWeight: 'bold', color: '#701C45', marginBottom: '24px' }}>Request Event Partnership</h4>
+              <div style={{ marginBottom: '20px' }}>
+                <input type="text" placeholder="Organization Name" style={{ width: '100%', padding: '12px 16px', border: '2px solid #e0e0e0', borderRadius: '8px', fontSize: '16px', boxSizing: 'border-box' }} />
+              </div>
+              <div style={{ marginBottom: '20px' }}>
+                <input type="email" placeholder="Contact Email" style={{ width: '100%', padding: '12px 16px', border: '2px solid #e0e0e0', borderRadius: '8px', fontSize: '16px', boxSizing: 'border-box' }} />
+              </div>
+              <div style={{ marginBottom: '20px' }}>
+                <input type="date" placeholder="Preferred Date" style={{ width: '100%', padding: '12px 16px', border: '2px solid #e0e0e0', borderRadius: '8px', fontSize: '16px', boxSizing: 'border-box' }} />
+              </div>
+              <div style={{ marginBottom: '20px' }}>
+                <textarea placeholder="Event Details" rows="4" style={{ width: '100%', padding: '12px 16px', border: '2px solid #e0e0e0', borderRadius: '8px', fontSize: '16px', boxSizing: 'border-box', resize: 'vertical' }} />
+              </div>
+              <button style={{ background: '#701C45', color: 'white', padding: '16px 32px', borderRadius: '8px', border: 'none', fontSize: '16px', fontWeight: 'bold', cursor: 'pointer', width: '100%' }}>Submit Partnership Request</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+function FAQPage() {
+  return (
+    <div>
+      <section style={{ 
+        padding: '100px 0', 
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+            <div>
+              <h1 style={{ 
+                fontSize: '48px', 
+                fontWeight: 'bold', 
+                color: '#701C45',
+                marginBottom: '24px'
+              }}>
+                FREQUENTLY ASKED QUESTIONS
+              </h1>
+              <p style={{ 
+                fontSize: '18px', 
+                color: '#666', 
+                lineHeight: '1.6'
+              }}>
+                Find answers to common questions about blood donation and our platform. Get the information you need.
+              </p>
+            </div>
+            <div style={{ 
+              width: '100%',
+              height: '300px',
+              borderRadius: '12px',
+              backgroundImage: `url(${pageHeader4})`,
+              backgroundSize: 'contain',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}></div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Categories Section */}
+      <section style={{ padding: '80px 0', background: 'white' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px' }}>
+            <div>
+              <h2 style={{ fontSize: '28px', fontWeight: 'bold', color: '#701C45', marginBottom: '40px' }}>For Donors</h2>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                <div style={{ background: '#f5f5f5', padding: '24px', borderRadius: '12px' }}>
+                  <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#701C45', marginBottom: '12px' }}>Who can donate blood?</h3>
+                  <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>Healthy individuals aged 18-65, weighing at least 50kg, with no recent illness or medication that affects blood safety. Our system automatically checks eligibility based on your health profile.</p>
+                </div>
+                <div style={{ background: '#f5f5f5', padding: '24px', borderRadius: '12px' }}>
+                  <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#701C45', marginBottom: '12px' }}>How often can I donate?</h3>
+                  <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>Whole blood donations require a 3-month interval between donations. Our platform tracks your donation history and automatically notifies you when you're eligible to donate again.</p>
+                </div>
+                <div style={{ background: '#f5f5f5', padding: '24px', borderRadius: '12px' }}>
+                  <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#701C45', marginBottom: '12px' }}>Is the donation process safe?</h3>
+                  <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>Yes, all donations are conducted at certified medical facilities with sterile, single-use equipment. Medical professionals oversee the entire process to ensure donor safety.</p>
+                </div>
+                <div style={{ background: '#f5f5f5', padding: '24px', borderRadius: '12px' }}>
+                  <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#701C45', marginBottom: '12px' }}>How do I receive donation requests?</h3>
+                  <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>Once registered, you'll receive SMS and app notifications when hospitals need your blood type. You can accept or decline requests based on your availability.</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h2 style={{ fontSize: '28px', fontWeight: 'bold', color: '#701C45', marginBottom: '40px' }}>For Hospitals</h2>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                <div style={{ background: '#f5f5f5', padding: '24px', borderRadius: '12px' }}>
+                  <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#701C45', marginBottom: '12px' }}>How do I register my hospital?</h3>
+                  <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>Submit your medical facility license, certification documents, and authorized personnel credentials. Our verification team reviews applications within 48 hours.</p>
+                </div>
+                <div style={{ background: '#f5f5f5', padding: '24px', borderRadius: '12px' }}>
+                  <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#701C45', marginBottom: '12px' }}>How quickly can I find donors?</h3>
+                  <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>Our AI matching system processes requests within 5 seconds and immediately alerts eligible donors in your area. Emergency requests receive priority status.</p>
+                </div>
+                <div style={{ background: '#f5f5f5', padding: '24px', borderRadius: '12px' }}>
+                  <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#701C45', marginBottom: '12px' }}>Can I integrate with existing systems?</h3>
+                  <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>Yes, our API seamlessly integrates with hospital management systems, blood bank software, and inventory management platforms. Technical support is provided during setup.</p>
+                </div>
+                <div style={{ background: '#f5f5f5', padding: '24px', borderRadius: '12px' }}>
+                  <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#701C45', marginBottom: '12px' }}>How is data security maintained?</h3>
+                  <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>All medical data is encrypted with enterprise-grade security, compliant with healthcare privacy regulations. Access is restricted to authorized personnel only.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Support Section */}
+      <section style={{ padding: '80px 0', background: '#f5f5f5' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 24px', textAlign: 'center' }}>
+          <h2 style={{ fontSize: '32px', fontWeight: 'bold', color: '#701C45', marginBottom: '24px' }}>Still Have Questions?</h2>
+          <p style={{ fontSize: '16px', color: '#666', marginBottom: '40px', lineHeight: '1.6' }}>Our support team is available 24/7 to assist with any questions about blood donation, platform usage, or technical issues.</p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
+            <div style={{ background: 'white', padding: '30px', borderRadius: '12px', textAlign: 'center' }}>
+              <div style={{ fontSize: '24px', marginBottom: '16px' }}>📧</div>
+              <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#701C45', marginBottom: '8px' }}>Email Support</h3>
+              <p style={{ fontSize: '14px', color: '#666' }}>support@lifedrop.org</p>
+            </div>
+            <div style={{ background: 'white', padding: '30px', borderRadius: '12px', textAlign: 'center' }}>
+              <div style={{ fontSize: '24px', marginBottom: '16px' }}>📞</div>
+              <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#701C45', marginBottom: '8px' }}>Phone Support</h3>
+              <p style={{ fontSize: '14px', color: '#666' }}>+250 789 534 491</p>
+            </div>
+            <div style={{ background: 'white', padding: '30px', borderRadius: '12px', textAlign: 'center' }}>
+              <div style={{ fontSize: '24px', marginBottom: '16px' }}>💬</div>
+              <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#701C45', marginBottom: '8px' }}>Live Chat</h3>
+              <p style={{ fontSize: '14px', color: '#666' }}>Available 24/7</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+function PartnerWithUsPage() {
+  return (
+    <div>
+      <section style={{ 
+        padding: '100px 0', 
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+            <div>
+              <h1 style={{ 
+                fontSize: '48px', 
+                fontWeight: 'bold', 
+                color: '#701C45',
+                marginBottom: '24px'
+              }}>
+                PARTNER WITH US
+              </h1>
+              <p style={{ 
+                fontSize: '18px', 
+                color: '#666', 
+                lineHeight: '1.6'
+              }}>
+                Join our network of healthcare partners and expand blood donation access across East Africa.
+              </p>
+            </div>
+            <div style={{ 
+              width: '100%',
+              height: '300px',
+              borderRadius: '12px',
+              backgroundImage: `url(${pageHeader6})`,
+              backgroundSize: 'contain',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Partnership Types Section */}
+      <section style={{ padding: '80px 0', background: 'white' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <h2 style={{ fontSize: '36px', fontWeight: 'bold', color: '#701C45', textAlign: 'center', marginBottom: '60px' }}>STRATEGIC PARTNERSHIP OPPORTUNITIES</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px' }}>
+            <div style={{ background: '#f5f5f5', padding: '40px', borderRadius: '12px', textAlign: 'center' }}>
+              <div style={{ width: '80px', height: '80px', background: '#701C45', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 24px' }}>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-4v-4H5v-4h5V5h4v4h5v4h-5v4z"/>
+                </svg>
+              </div>
+              <h3 style={{ fontSize: '22px', fontWeight: 'bold', color: '#701C45', marginBottom: '16px' }}>Healthcare Institutions</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6', marginBottom: '24px' }}>Hospitals, clinics, and medical centers can integrate our platform to streamline blood procurement and donor management.</p>
+              <div style={{ textAlign: 'left', fontSize: '14px', color: '#666', lineHeight: '1.8' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                  <div style={{ width: '6px', height: '6px', background: '#701C45', borderRadius: '50%' }}></div>
+                  <span>Direct API integration</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                  <div style={{ width: '6px', height: '6px', background: '#701C45', borderRadius: '50%' }}></div>
+                  <span>Real-time inventory sync</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                  <div style={{ width: '6px', height: '6px', background: '#701C45', borderRadius: '50%' }}></div>
+                  <span>Emergency request priority</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <div style={{ width: '6px', height: '6px', background: '#701C45', borderRadius: '50%' }}></div>
+                  <span>Dedicated account management</span>
+                </div>
+              </div>
+            </div>
+            <div style={{ background: '#f5f5f5', padding: '40px', borderRadius: '12px', textAlign: 'center' }}>
+              <div style={{ width: '80px', height: '80px', background: '#701C45', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 24px' }}>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              </div>
+              <h3 style={{ fontSize: '22px', fontWeight: 'bold', color: '#701C45', marginBottom: '16px' }}>Government Agencies</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6', marginBottom: '24px' }}>National health ministries and regional health authorities can leverage our platform for public health initiatives.</p>
+              <div style={{ textAlign: 'left', fontSize: '14px', color: '#666', lineHeight: '1.8' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                  <div style={{ width: '6px', height: '6px', background: '#701C45', borderRadius: '50%' }}></div>
+                  <span>Population-wide donor registration</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                  <div style={{ width: '6px', height: '6px', background: '#701C45', borderRadius: '50%' }}></div>
+                  <span>Emergency response coordination</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                  <div style={{ width: '6px', height: '6px', background: '#701C45', borderRadius: '50%' }}></div>
+                  <span>Health data analytics</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <div style={{ width: '6px', height: '6px', background: '#701C45', borderRadius: '50%' }}></div>
+                  <span>Policy compliance reporting</span>
+                </div>
+              </div>
+            </div>
+            <div style={{ background: '#f5f5f5', padding: '40px', borderRadius: '12px', textAlign: 'center' }}>
+              <div style={{ width: '80px', height: '80px', background: '#701C45', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 24px' }}>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                  <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                </svg>
+              </div>
+              <h3 style={{ fontSize: '22px', fontWeight: 'bold', color: '#701C45', marginBottom: '16px' }}>Technology Partners</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6', marginBottom: '24px' }}>Software companies and tech providers can integrate blood donation services into existing healthcare platforms.</p>
+              <div style={{ textAlign: 'left', fontSize: '14px', color: '#666', lineHeight: '1.8' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                  <div style={{ width: '6px', height: '6px', background: '#701C45', borderRadius: '50%' }}></div>
+                  <span>White-label solutions</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                  <div style={{ width: '6px', height: '6px', background: '#701C45', borderRadius: '50%' }}></div>
+                  <span>SDK and API access</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                  <div style={{ width: '6px', height: '6px', background: '#701C45', borderRadius: '50%' }}></div>
+                  <span>Custom integrations</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <div style={{ width: '6px', height: '6px', background: '#701C45', borderRadius: '50%' }}></div>
+                  <span>Revenue sharing models</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Partnership Benefits Section */}
+      <section style={{ padding: '80px 0', background: '#f5f5f5' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <h2 style={{ fontSize: '36px', fontWeight: 'bold', color: '#701C45', textAlign: 'center', marginBottom: '60px' }}>PARTNERSHIP BENEFITS</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+            <div>
+              <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: '#701C45', marginBottom: '30px' }}>Why Partner with LIFE DROP?</h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
+                  <div style={{ width: '24px', height: '24px', background: '#701C45', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="white">
+                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 style={{ fontSize: '18px', fontWeight: 'bold', color: '#701C45', marginBottom: '8px' }}>Proven Impact</h4>
+                    <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>Join a network that has facilitated over 50,000 successful blood donations across East Africa.</p>
+                  </div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
+                  <div style={{ width: '24px', height: '24px', background: '#701C45', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="white">
+                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 style={{ fontSize: '18px', fontWeight: 'bold', color: '#701C45', marginBottom: '8px' }}>Advanced Technology</h4>
+                    <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>Access cutting-edge AI matching algorithms and real-time analytics for optimal donor-hospital connections.</p>
+                  </div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
+                  <div style={{ width: '24px', height: '24px', background: '#701C45', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="white">
+                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 style={{ fontSize: '18px', fontWeight: 'bold', color: '#701C45', marginBottom: '8px' }}>Regulatory Compliance</h4>
+                    <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>Full compliance with healthcare data protection and medical privacy regulations across all partner countries.</p>
+                  </div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
+                  <div style={{ width: '24px', height: '24px', background: '#701C45', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '2px', flexShrink: 0 }}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="white">
+                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 style={{ fontSize: '18px', fontWeight: 'bold', color: '#701C45', marginBottom: '8px' }}>24/7 Support</h4>
+                    <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>Dedicated technical support and account management to ensure seamless integration and operations.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style={{ background: 'white', padding: '40px', borderRadius: '12px', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
+              <h4 style={{ fontSize: '24px', fontWeight: 'bold', color: '#701C45', marginBottom: '24px' }}>Request Partnership</h4>
+              <div style={{ marginBottom: '20px' }}>
+                <input type="text" placeholder="Organization Name" style={{ width: '100%', padding: '12px 16px', border: '2px solid #e0e0e0', borderRadius: '8px', fontSize: '16px', boxSizing: 'border-box' }} />
+              </div>
+              <div style={{ marginBottom: '20px' }}>
+                <input type="email" placeholder="Contact Email" style={{ width: '100%', padding: '12px 16px', border: '2px solid #e0e0e0', borderRadius: '8px', fontSize: '16px', boxSizing: 'border-box' }} />
+              </div>
+              <div style={{ marginBottom: '20px' }}>
+                <select style={{ width: '100%', padding: '12px 16px', border: '2px solid #e0e0e0', borderRadius: '8px', fontSize: '16px', boxSizing: 'border-box' }}>
+                  <option>Partnership Type</option>
+                  <option>Healthcare Institution</option>
+                  <option>Government Agency</option>
+                  <option>Technology Partner</option>
+                  <option>NGO/Non-Profit</option>
+                </select>
+              </div>
+              <div style={{ marginBottom: '20px' }}>
+                <textarea placeholder="Partnership Goals & Requirements" rows="4" style={{ width: '100%', padding: '12px 16px', border: '2px solid #e0e0e0', borderRadius: '8px', fontSize: '16px', boxSizing: 'border-box', resize: 'vertical' }} />
+              </div>
+              <button style={{ background: '#701C45', color: 'white', padding: '16px 32px', borderRadius: '8px', border: 'none', fontSize: '16px', fontWeight: 'bold', cursor: 'pointer', width: '100%' }}>Submit Partnership Request</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+function APIIntegrationPage() {
+  return (
+    <div>
+      <section style={{ 
+        padding: '100px 0', 
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+            <div>
+              <h1 style={{ 
+                fontSize: '48px', 
+                fontWeight: 'bold', 
+                color: '#701C45',
+                marginBottom: '24px'
+              }}>
+                API INTEGRATION
+              </h1>
+              <p style={{ 
+                fontSize: '18px', 
+                color: '#666', 
+                lineHeight: '1.6'
+              }}>
+                Integrate LIFE DROP's API with your hospital management system for seamless blood request processing.
+              </p>
+            </div>
+            <div style={{ 
+              width: '100%',
+              height: '300px',
+              borderRadius: '12px',
+              backgroundImage: `url(${pageHeader3})`,
+              backgroundSize: 'contain',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}></div>
+          </div>
+        </div>
+      </section>
+
+      {/* API Features Section */}
+      <section style={{ padding: '80px 0', background: 'white' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <h2 style={{ fontSize: '36px', fontWeight: 'bold', color: '#701C45', textAlign: 'center', marginBottom: '60px' }}>COMPREHENSIVE API SOLUTIONS</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px' }}>
+            <div style={{ background: '#f5f5f5', padding: '30px', borderRadius: '12px', textAlign: 'center' }}>
+              <div style={{ width: '80px', height: '80px', background: '#701C45', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
+                <div style={{ width: '40px', height: '40px', background: 'white', borderRadius: '4px' }}></div>
+              </div>
+              <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#701C45', marginBottom: '16px' }}>RESTful API</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>Modern REST API with JSON responses, comprehensive documentation, and SDKs for popular programming languages.</p>
+            </div>
+            <div style={{ background: '#f5f5f5', padding: '30px', borderRadius: '12px', textAlign: 'center' }}>
+              <div style={{ width: '80px', height: '80px', background: '#701C45', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
+                <div style={{ width: '40px', height: '40px', background: 'white', borderRadius: '50%' }}></div>
+              </div>
+              <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#701C45', marginBottom: '16px' }}>Real-Time Webhooks</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>Instant notifications for donor responses, request updates, and inventory changes through secure webhook endpoints.</p>
+            </div>
+            <div style={{ background: '#f5f5f5', padding: '30px', borderRadius: '12px', textAlign: 'center' }}>
+              <div style={{ width: '80px', height: '80px', background: '#701C45', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
+                <div style={{ width: '40px', height: '40px', background: 'white', borderRadius: '4px' }}></div>
+              </div>
+              <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#701C45', marginBottom: '16px' }}>Enterprise Security</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>OAuth 2.0 authentication, API key management, and encrypted data transmission with healthcare compliance.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* API Endpoints Section */}
+      <section style={{ padding: '80px 0', background: '#f5f5f5' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <h2 style={{ fontSize: '36px', fontWeight: 'bold', color: '#701C45', textAlign: 'center', marginBottom: '60px' }}>KEY API ENDPOINTS</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px' }}>
+            <div>
+              <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: '#701C45', marginBottom: '30px' }}>Blood Request Management</h3>
+              <div style={{ background: 'white', padding: '20px', borderRadius: '8px', marginBottom: '16px', fontFamily: 'monospace' }}>
+                <div style={{ color: '#4CAF50', fontWeight: 'bold', marginBottom: '8px' }}>POST /api/v1/blood-requests</div>
+                <div style={{ fontSize: '14px', color: '#666' }}>Create new blood request with type, quantity, urgency</div>
+              </div>
+              <div style={{ background: 'white', padding: '20px', borderRadius: '8px', marginBottom: '16px', fontFamily: 'monospace' }}>
+                <div style={{ color: '#2196F3', fontWeight: 'bold', marginBottom: '8px' }}>GET /api/v1/blood-requests/[id]</div>
+                <div style={{ fontSize: '14px', color: '#666' }}>Retrieve request status and donor responses</div>
+              </div>
+              <div style={{ background: 'white', padding: '20px', borderRadius: '8px', marginBottom: '16px', fontFamily: 'monospace' }}>
+                <div style={{ color: '#FF9800', fontWeight: 'bold', marginBottom: '8px' }}>PUT /api/v1/blood-requests/[id]</div>
+                <div style={{ fontSize: '14px', color: '#666' }}>Update request details or close request</div>
+              </div>
+            </div>
+            <div>
+              <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: '#701C45', marginBottom: '30px' }}>Donor & Inventory</h3>
+              <div style={{ background: 'white', padding: '20px', borderRadius: '8px', marginBottom: '16px', fontFamily: 'monospace' }}>
+                <div style={{ color: '#2196F3', fontWeight: 'bold', marginBottom: '8px' }}>GET /api/v1/donors/search</div>
+                <div style={{ fontSize: '14px', color: '#666' }}>Search available donors by blood type and location</div>
+              </div>
+              <div style={{ background: 'white', padding: '20px', borderRadius: '8px', marginBottom: '16px', fontFamily: 'monospace' }}>
+                <div style={{ color: '#2196F3', fontWeight: 'bold', marginBottom: '8px' }}>GET /api/v1/inventory</div>
+                <div style={{ fontSize: '14px', color: '#666' }}>Real-time blood inventory levels and expiry dates</div>
+              </div>
+              <div style={{ background: 'white', padding: '20px', borderRadius: '8px', marginBottom: '16px', fontFamily: 'monospace' }}>
+                <div style={{ color: '#4CAF50', fontWeight: 'bold', marginBottom: '8px' }}>POST /api/v1/donations</div>
+                <div style={{ fontSize: '14px', color: '#666' }}>Record completed donation and update inventory</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Integration Guide Section */}
+      <section style={{ padding: '80px 0', background: 'white' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <h2 style={{ fontSize: '36px', fontWeight: 'bold', color: '#701C45', textAlign: 'center', marginBottom: '60px' }}>INTEGRATION PROCESS</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '30px' }}>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ width: '60px', height: '60px', background: '#701C45', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', color: 'white', fontSize: '24px', fontWeight: 'bold' }}>1</div>
+              <h4 style={{ fontSize: '16px', fontWeight: 'bold', color: '#701C45', marginBottom: '12px' }}>API Access Request</h4>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.5' }}>Submit integration request with hospital credentials and technical requirements.</p>
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ width: '60px', height: '60px', background: '#701C45', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', color: 'white', fontSize: '24px', fontWeight: 'bold' }}>2</div>
+              <h4 style={{ fontSize: '16px', fontWeight: 'bold', color: '#701C45', marginBottom: '12px' }}>Sandbox Testing</h4>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.5' }}>Test API endpoints in our sandbox environment with sample data and documentation.</p>
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ width: '60px', height: '60px', background: '#701C45', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', color: 'white', fontSize: '24px', fontWeight: 'bold' }}>3</div>
+              <h4 style={{ fontSize: '16px', fontWeight: 'bold', color: '#701C45', marginBottom: '12px' }}>Production Setup</h4>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.5' }}>Deploy to production with security keys, webhook configuration, and monitoring.</p>
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ width: '60px', height: '60px', background: '#701C45', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', color: 'white', fontSize: '24px', fontWeight: 'bold' }}>4</div>
+              <h4 style={{ fontSize: '16px', fontWeight: 'bold', color: '#701C45', marginBottom: '12px' }}>Go Live</h4>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.5' }}>Launch integration with ongoing support and performance monitoring.</p>
+            </div>
+          </div>
+          <div style={{ textAlign: 'center', marginTop: '60px' }}>
+            <button style={{ background: '#701C45', color: 'white', padding: '16px 32px', borderRadius: '8px', border: 'none', fontSize: '16px', fontWeight: 'bold', cursor: 'pointer', marginRight: '20px' }}>Request API Access</button>
+            <button style={{ background: 'transparent', color: '#701C45', padding: '16px 32px', borderRadius: '8px', border: '2px solid #701C45', fontSize: '16px', fontWeight: 'bold', cursor: 'pointer' }}>View Documentation</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+
+
+function PrivacyPolicyPage() {
+  return (
+    <div>
+      <section style={{ 
+        padding: '100px 0', 
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+            <div>
+              <h1 style={{ 
+                fontSize: '48px', 
+                fontWeight: 'bold', 
+                color: '#701C45',
+                marginBottom: '24px'
+              }}>
+                PRIVACY POLICY
+              </h1>
+              <p style={{ 
+                fontSize: '18px', 
+                color: '#666', 
+                lineHeight: '1.6'
+              }}>
+                Your privacy is important to us. Learn how we collect, use, and protect your information on LIFE DROP.
+              </p>
+            </div>
+            <div style={{ 
+              width: '100%',
+              height: '300px',
+              borderRadius: '12px',
+              backgroundImage: `url(${smilingChildImage})`,
+              backgroundSize: 'contain',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Privacy Overview Section */}
+      <section style={{ padding: '80px 0', background: 'white' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+            <h2 style={{ fontSize: '36px', fontWeight: 'bold', color: '#701C45', marginBottom: '24px' }}>DATA PROTECTION COMMITMENT</h2>
+            <p style={{ fontSize: '16px', color: '#666', lineHeight: '1.6', maxWidth: '800px', margin: '0 auto' }}>LIFE DROP is committed to protecting your personal and medical information. This policy outlines how we collect, use, store, and protect your data in compliance with international healthcare privacy regulations.</p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px' }}>
+            <div style={{ textAlign: 'center', padding: '30px' }}>
+              <div style={{ width: '80px', height: '80px', background: '#701C45', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                  <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                </svg>
+              </div>
+              <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#701C45', marginBottom: '16px' }}>Secure Encryption</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>All personal and medical data is encrypted using AES-256 encryption both in transit and at rest.</p>
+            </div>
+            <div style={{ textAlign: 'center', padding: '30px' }}>
+              <div style={{ width: '80px', height: '80px', background: '#701C45', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+              </div>
+              <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#701C45', marginBottom: '16px' }}>Regulatory Compliance</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>Full compliance with GDPR, HIPAA, and local healthcare data protection regulations.</p>
+            </div>
+            <div style={{ textAlign: 'center', padding: '30px' }}>
+              <div style={{ width: '80px', height: '80px', background: '#701C45', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              </div>
+              <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#701C45', marginBottom: '16px' }}>User Control</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>Complete control over your data with options to view, update, or delete your information at any time.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Privacy Policy Content Section */}
+      <section style={{ padding: '80px 0', background: '#f5f5f5' }}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 24px' }}>
+          <div style={{ background: 'white', padding: '60px', borderRadius: '12px', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
+            <div style={{ marginBottom: '40px' }}>
+              <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: '#701C45', marginBottom: '20px' }}>1. Information We Collect</h3>
+              <div style={{ fontSize: '16px', color: '#666', lineHeight: '1.8' }}>
+                <p style={{ marginBottom: '16px' }}><strong>Personal Information:</strong> Name, email address, phone number, date of birth, and location data for donor-hospital matching.</p>
+                <p style={{ marginBottom: '16px' }}><strong>Medical Information:</strong> Blood type, medical history, donation records, and eligibility status as required for safe blood donation.</p>
+                <p style={{ marginBottom: '16px' }}><strong>Usage Data:</strong> Platform interaction data, login times, and feature usage for service improvement and security monitoring.</p>
+              </div>
+            </div>
+            <div style={{ marginBottom: '40px' }}>
+              <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: '#701C45', marginBottom: '20px' }}>2. How We Use Your Information</h3>
+              <div style={{ fontSize: '16px', color: '#666', lineHeight: '1.8' }}>
+                <p style={{ marginBottom: '16px' }}><strong>Donor Matching:</strong> Connect eligible donors with hospitals based on blood type, location, and availability.</p>
+                <p style={{ marginBottom: '16px' }}><strong>Safety Verification:</strong> Ensure donor eligibility and maintain safe donation intervals according to medical guidelines.</p>
+                <p style={{ marginBottom: '16px' }}><strong>Communication:</strong> Send notifications about donation requests, appointment confirmations, and important health updates.</p>
+              </div>
+            </div>
+            <div style={{ marginBottom: '40px' }}>
+              <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: '#701C45', marginBottom: '20px' }}>3. Data Sharing and Disclosure</h3>
+              <div style={{ fontSize: '16px', color: '#666', lineHeight: '1.8' }}>
+                <p style={{ marginBottom: '16px' }}><strong>Healthcare Partners:</strong> Limited data sharing with verified hospitals and medical facilities for donation coordination.</p>
+                <p style={{ marginBottom: '16px' }}><strong>Legal Requirements:</strong> Data may be disclosed when required by law or to protect public health and safety.</p>
+                <p style={{ marginBottom: '16px' }}><strong>No Commercial Use:</strong> We never sell or share your personal information with third parties for commercial purposes.</p>
+              </div>
+            </div>
+            <div style={{ marginBottom: '40px' }}>
+              <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: '#701C45', marginBottom: '20px' }}>4. Data Security and Storage</h3>
+              <div style={{ fontSize: '16px', color: '#666', lineHeight: '1.8' }}>
+                <p style={{ marginBottom: '16px' }}><strong>Encryption:</strong> All data is encrypted using industry-standard AES-256 encryption both in transit and at rest.</p>
+                <p style={{ marginBottom: '16px' }}><strong>Access Control:</strong> Strict access controls ensure only authorized personnel can access your information.</p>
+                <p style={{ marginBottom: '16px' }}><strong>Data Retention:</strong> Medical data is retained for 7 years as required by healthcare regulations, then securely deleted.</p>
+              </div>
+            </div>
+            <div style={{ marginBottom: '40px' }}>
+              <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: '#701C45', marginBottom: '20px' }}>5. Your Rights and Choices</h3>
+              <div style={{ fontSize: '16px', color: '#666', lineHeight: '1.8' }}>
+                <p style={{ marginBottom: '16px' }}><strong>Access and Update:</strong> View and update your personal information through your account dashboard.</p>
+                <p style={{ marginBottom: '16px' }}><strong>Data Portability:</strong> Request a copy of your data in a machine-readable format.</p>
+                <p style={{ marginBottom: '16px' }}><strong>Account Deletion:</strong> Delete your account and associated data, subject to legal retention requirements.</p>
+              </div>
+            </div>
+            <div style={{ textAlign: 'center', paddingTop: '40px', borderTop: '1px solid #e0e0e0' }}>
+              <p style={{ fontSize: '14px', color: '#666', marginBottom: '20px' }}>Last updated: January 2025</p>
+              <p style={{ fontSize: '14px', color: '#666' }}>For questions about this privacy policy, contact us at <strong>privacy@lifedrop.org</strong></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+function TermsOfServicePage() {
+  return (
+    <div>
+      <section style={{ 
+        padding: '100px 0', 
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+            <div>
+              <h1 style={{ 
+                fontSize: '48px', 
+                fontWeight: 'bold', 
+                color: '#701C45',
+                marginBottom: '24px'
+              }}>
+                TERMS OF SERVICE
+              </h1>
+              <p style={{ 
+                fontSize: '18px', 
+                color: '#666', 
+                lineHeight: '1.6'
+              }}>
+                These terms govern your use of the LIFE DROP platform and services. Read our guidelines and policies.
+              </p>
+            </div>
+            <div style={{ 
+              width: '100%',
+              height: '300px',
+              borderRadius: '12px',
+              backgroundImage: `url(${impactHero})`,
+              backgroundSize: 'contain',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Terms Overview Section */}
+      <section style={{ padding: '80px 0', background: 'white' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+            <h2 style={{ fontSize: '36px', fontWeight: 'bold', color: '#701C45', marginBottom: '24px' }}>SERVICE AGREEMENT</h2>
+            <p style={{ fontSize: '16px', color: '#666', lineHeight: '1.6', maxWidth: '800px', margin: '0 auto' }}>By using LIFE DROP, you agree to these terms of service. Our platform connects blood donors with healthcare facilities to save lives across East Africa through secure, compliant, and efficient blood donation coordination.</p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px' }}>
+            <div style={{ textAlign: 'center', padding: '30px' }}>
+              <div style={{ width: '80px', height: '80px', background: '#701C45', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#701C45', marginBottom: '16px' }}>User Responsibilities</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>Provide accurate information, maintain account security, and comply with medical eligibility requirements.</p>
+            </div>
+            <div style={{ textAlign: 'center', padding: '30px' }}>
+              <div style={{ width: '80px', height: '80px', background: '#701C45', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                  <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                </svg>
+              </div>
+              <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#701C45', marginBottom: '16px' }}>Platform Security</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>Secure platform with data protection, user authentication, and compliance with healthcare regulations.</p>
+            </div>
+            <div style={{ textAlign: 'center', padding: '30px' }}>
+              <div style={{ width: '80px', height: '80px', background: '#701C45', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              </div>
+              <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#701C45', marginBottom: '16px' }}>Service Quality</h3>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>24/7 platform availability, real-time matching, and dedicated support for all users.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Terms Content Section */}
+      <section style={{ padding: '80px 0', background: '#f5f5f5' }}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 24px' }}>
+          <div style={{ background: 'white', padding: '60px', borderRadius: '12px', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
+            <div style={{ marginBottom: '40px' }}>
+              <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: '#701C45', marginBottom: '20px' }}>1. Acceptance of Terms</h3>
+              <div style={{ fontSize: '16px', color: '#666', lineHeight: '1.8' }}>
+                <p style={{ marginBottom: '16px' }}>By accessing or using LIFE DROP services, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using our services.</p>
+                <p style={{ marginBottom: '16px' }}>These terms apply to all users including donors, hospitals, healthcare facilities, and partner organizations accessing our platform.</p>
+              </div>
+            </div>
+            <div style={{ marginBottom: '40px' }}>
+              <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: '#701C45', marginBottom: '20px' }}>2. User Accounts and Eligibility</h3>
+              <div style={{ fontSize: '16px', color: '#666', lineHeight: '1.8' }}>
+                <p style={{ marginBottom: '16px' }}><strong>Donor Eligibility:</strong> Must be 18-65 years old, weigh at least 50kg, and meet medical eligibility criteria for blood donation.</p>
+                <p style={{ marginBottom: '16px' }}><strong>Hospital Registration:</strong> Must be a licensed medical facility with proper certifications and authorized personnel.</p>
+                <p style={{ marginBottom: '16px' }}><strong>Account Security:</strong> Users are responsible for maintaining the confidentiality of their account credentials and all activities under their account.</p>
+              </div>
+            </div>
+            <div style={{ marginBottom: '40px' }}>
+              <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: '#701C45', marginBottom: '20px' }}>3. Platform Usage and Conduct</h3>
+              <div style={{ fontSize: '16px', color: '#666', lineHeight: '1.8' }}>
+                <p style={{ marginBottom: '16px' }}><strong>Permitted Use:</strong> Use the platform solely for legitimate blood donation coordination and healthcare purposes.</p>
+                <p style={{ marginBottom: '16px' }}><strong>Prohibited Activities:</strong> No misuse of medical information, false eligibility claims, or interference with platform operations.</p>
+                <p style={{ marginBottom: '16px' }}><strong>Data Accuracy:</strong> Users must provide accurate, current, and complete information and update it as necessary.</p>
+              </div>
+            </div>
+            <div style={{ marginBottom: '40px' }}>
+              <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: '#701C45', marginBottom: '20px' }}>4. Medical Disclaimer and Liability</h3>
+              <div style={{ fontSize: '16px', color: '#666', lineHeight: '1.8' }}>
+                <p style={{ marginBottom: '16px' }}><strong>Platform Role:</strong> LIFE DROP is a coordination platform and does not provide medical services or medical advice.</p>
+                <p style={{ marginBottom: '16px' }}><strong>Medical Responsibility:</strong> All medical decisions, screening, and donation procedures are the responsibility of qualified healthcare professionals.</p>
+                <p style={{ marginBottom: '16px' }}><strong>Limitation of Liability:</strong> LIFE DROP is not liable for medical outcomes, donation complications, or healthcare decisions made by users.</p>
+              </div>
+            </div>
+            <div style={{ marginBottom: '40px' }}>
+              <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: '#701C45', marginBottom: '20px' }}>5. Service Availability and Modifications</h3>
+              <div style={{ fontSize: '16px', color: '#666', lineHeight: '1.8' }}>
+                <p style={{ marginBottom: '16px' }}><strong>Service Availability:</strong> We strive for 24/7 availability but do not guarantee uninterrupted service due to maintenance or technical issues.</p>
+                <p style={{ marginBottom: '16px' }}><strong>Service Modifications:</strong> We reserve the right to modify, suspend, or discontinue services with reasonable notice to users.</p>
+                <p style={{ marginBottom: '16px' }}><strong>Updates to Terms:</strong> These terms may be updated periodically, with notice provided through the platform or email.</p>
+              </div>
+            </div>
+            <div style={{ marginBottom: '40px' }}>
+              <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: '#701C45', marginBottom: '20px' }}>6. Termination and Account Suspension</h3>
+              <div style={{ fontSize: '16px', color: '#666', lineHeight: '1.8' }}>
+                <p style={{ marginBottom: '16px' }}><strong>User Termination:</strong> Users may terminate their account at any time through account settings.</p>
+                <p style={{ marginBottom: '16px' }}><strong>Platform Termination:</strong> We may suspend or terminate accounts for violations of these terms or applicable laws.</p>
+                <p style={{ marginBottom: '16px' }}><strong>Data Retention:</strong> Upon termination, data will be handled according to our Privacy Policy and legal requirements.</p>
+              </div>
+            </div>
+            <div style={{ textAlign: 'center', paddingTop: '40px', borderTop: '1px solid #e0e0e0' }}>
+              <p style={{ fontSize: '14px', color: '#666', marginBottom: '20px' }}>Last updated: January 2025</p>
+              <p style={{ fontSize: '14px', color: '#666' }}>For questions about these terms, contact us at <strong>legal@lifedrop.org</strong></p>
             </div>
           </div>
         </div>
