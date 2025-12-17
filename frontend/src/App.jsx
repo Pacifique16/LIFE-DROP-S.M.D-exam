@@ -988,7 +988,10 @@ function AboutPage({ setCurrentPage }) {
                     border: 'none', 
                     fontSize: '16px', 
                     fontWeight: 'bold',
-                    cursor: 'pointer'
+                    cursor: 'pointer',
+                    pointerEvents: 'auto',
+                    position: 'relative',
+                    zIndex: 10
                   }}>
                   Join Our Network
                 </button>

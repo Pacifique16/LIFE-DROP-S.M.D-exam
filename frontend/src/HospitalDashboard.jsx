@@ -174,7 +174,7 @@ const HospitalDashboard = ({ userEmail, onLogout }) => {
   }
 
   const [recentRequests, setRecentRequests] = useState([
-    { id: 1, type: 'A-', units: 3, priority: 'Emergency', status: 'Pending', time: '30 min ago' },
+    { id: 1, type: 'A-', units: 3, priority: 'Emergency', status: 'Fulfilled', time: '30 min ago' },
     { id: 2, type: 'O+', units: 5, priority: 'Urgent', status: 'Fulfilled', time: '2 hours ago' },
     { id: 3, type: 'B-', units: 2, priority: 'Emergency', status: 'Pending', time: '4 hours ago' },
     { id: 4, type: 'AB+', units: 1, priority: 'Normal', status: 'Fulfilled', time: '6 hours ago' }
