@@ -101,7 +101,7 @@ npm run dev
 
 © Copyright 2025 Pacifique Harerimana
 
-This project is for educational purposes as part of AUCA Data Structure and Algorithms coursework. Feel free to fork and learn from it, but please give credit where it's due.
+This project is for educational purposes as part of AUCA Software Modeling Design coursework. Feel free to fork and learn from it, but please give credit where it's due.
 
 
 
