@@ -97,6 +97,25 @@ npm run dev
 - ✅ Blood expiry management
 - ✅ Emergency request prioritization
 
-## License
+## 📝 License
 
-MIT License
+© Copyright 2025 Pacifique Harerimana
+
+This project is for educational purposes as part of AUCA Data Structure and Algorithms coursework. Feel free to fork and learn from it, but please give credit where it's due.
+
+
+
+## ⭐ Show Your Support
+
+**If you found this project helpful or interesting, please consider giving it a star!** 🌟
+
+Your support motivates me to create more educational projects and helps others discover useful resources.
+
+
+## 👨‍💻 Author
+**Pacifique Harerimana**  
+📧 Contact: [GitHub](https://github.com/Pacifique16)
+
+
+##
+*Built with ❤️ for learning and sharing knowledge*
